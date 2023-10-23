@@ -1,10 +1,16 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-interface QueryState {
+export interface QueryState {
   query: string;
   setQuery: (input: string) => void;
+  resetQuery: () => void;
 }
+
+export type QueryStoreValueProps =
+  | QueryState['query']
+  | QueryState['resetQuery']
+  | QueryState['setQuery'];
 
 export const QueryStore = create<QueryState>()(
   devtools((set) => ({

@@ -10,10 +10,20 @@ const Input = () => {
   };
   const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="query" onChange={handleQueryChange} value={query} />
-      <button type="submit">제출</button>
-    </form>
+    <>
+      <div>
+        query: <span role="queryInfo">{query}</span>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="query"
+          role="getInitialDemandQuery"
+          onChange={handleQueryChange}
+          value={query}
+        />
+        <button type="submit">제출</button>
+      </form>
+    </>
   );
 };
 
