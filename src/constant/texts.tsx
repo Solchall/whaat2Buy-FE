@@ -9,5 +9,10 @@ const SubTitle = [
   '맞춤형 쇼핑의 경험',
   1000,
 ];
-
-export { MainTitle, SubTitle };
+const QueryPlaceHolder = [
+  '키치한 옷 찾아줘',
+  '2만원대 하늘색 여름 셔츠 찾아줘',
+  '뉴진스 스타일 옷 찾아줘',
+  '20대 여자가 입기 좋은 하늘색 셔츠 찾아줘',
+];
+export { MainTitle, SubTitle, QueryPlaceHolder };

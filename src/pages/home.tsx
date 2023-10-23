@@ -1,4 +1,4 @@
-import { AnimatedTitle } from 'components';
+import { AnimatedTitle, QueryInput } from 'components';
 
 const Home = () => {
   return (
@@ -6,6 +6,7 @@ const Home = () => {
       <div className="w-2/5">
         {' '}
         <AnimatedTitle />
+        <QueryInput />
       </div>
     </div>
   );
