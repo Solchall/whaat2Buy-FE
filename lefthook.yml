@@ -15,10 +15,12 @@
 pre-commit:
   parallel: true
   commands:
-  prettier:
-    run: npm run format
-  eslint:
-    run: npm run lint
+    prettier:
+      #glob: "./src/***"
+      run: npm run format
+    eslint:
+      #glob: "./src/**/*.{ts,tsx}"
+      run: npm run lint
 #     rubocop:
 #       tags: backend style
 #       glob: "*.rb"
