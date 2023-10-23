@@ -34,7 +34,7 @@ test('입력한 값이 store의 query값으로 설정되며 effect로 반환됨'
     setQuery: store.setQuery,
   });
   const intialDemand = 'y2k 패션 추천해줘';
-  let currentItem;
+  let currentItem: QueryState;
   const effect = jest.fn().mockImplementation((item) => {
     currentItem = item;
     if (item.query.length === 0) {

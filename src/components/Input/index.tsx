@@ -11,9 +11,6 @@ const Input = () => {
   const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
   return (
     <>
-      <div>
-        query: <span role="queryInfo">{query}</span>
-      </div>
       <form onSubmit={handleSubmit}>
         <input
           name="query"
