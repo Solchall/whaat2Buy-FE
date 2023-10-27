@@ -2,8 +2,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Home, List } from './pages';
 import { DefaultLayout } from 'components';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (
@@ -16,6 +23,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={true} position="bottom-right" />
     </QueryClientProvider>
   );
 }

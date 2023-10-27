@@ -1,6 +1,6 @@
 import { IItem } from './items';
 
-interface IReqGetFilteredList {
+interface IReqGetList {
   apikey: string;
   userNeed: string;
 }
@@ -8,11 +8,22 @@ interface IReqGetFilteredList {
 interface IResGetFilterList {
   status: number;
   data: {
+    status: number;
     filtering: {
       result: boolean;
       clothes: IItem[] | [];
     };
   };
 }
+interface IResGetMagazineList {
+  status: number;
 
-export type { IReqGetFilteredList, IResGetFilterList };
+  data: {
+    magazines: {
+      result: boolean;
+      clothes: IItem[] | [];
+    };
+  };
+}
+
+export type { IReqGetList, IResGetFilterList, IResGetMagazineList };

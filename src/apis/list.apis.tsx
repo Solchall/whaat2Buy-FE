@@ -1,5 +1,5 @@
 import { defaultAxios } from './index';
-import { IReqGetFilteredList, IResGetFilterList } from 'types';
+import { IReqGetList, IResGetFilterList, IResGetMagazineList, IItem } from 'types';
 
 const PREFIX: string = '/items';
 /**
@@ -7,17 +7,35 @@ const PREFIX: string = '/items';
  * @apikey apiKey
  * @userNeed userNeed
  */
-export const getFilteredList = async (body: IReqGetFilteredList) => {
+export const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
+  console.log('getFilterList', body);
   try {
     const {
       data: { filtering },
-      status,
     }: IResGetFilterList = await defaultAxios.post(`${PREFIX}/filtering`, body);
-    if (status === 200) {
-      return filtering.clothes;
-    }
+
+    return filtering.clothes;
   } catch (error) {
     console.log('Error', error);
-    return error;
+    throw new Error('Error');
+  }
+};
+
+/**
+ *매거진 - 물건 목록 받아오기
+ * @apikey apiKey
+ * @userNeed userNeed
+ */
+export const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
+  console.log('getMagazineList', body);
+  try {
+    const {
+      data: { magazines },
+    }: IResGetMagazineList = await defaultAxios.post(`${PREFIX}/magazines`, body);
+
+    return magazines.clothes;
+  } catch (error) {
+    console.log('Error', error);
+    throw new Error('ERror');
   }
 };

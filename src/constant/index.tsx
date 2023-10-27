@@ -1,1 +1,1 @@
-export { MainTitle, SubTitle } from './texts';
+export { MainTitles, SubTitles } from './texts';

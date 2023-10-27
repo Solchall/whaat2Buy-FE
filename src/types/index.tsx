@@ -5,6 +5,8 @@ export type {
   IQueryStoreValue,
 } from './query';
 
-export type { IReqGetFilteredList, IResGetFilterList } from './apis';
+export type { IReqGetList, IResGetMagazineList, IResGetFilterList } from './apis';
 
 export type { IItem } from './items';
+
+export type { IFilterList, IMagazineList } from './list';
