@@ -1,32 +1,17 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { IMagazineList, IFilterList } from 'types';
+import { IListType } from 'types';
 
-export const FilterListStore = create<IFilterList>()(
+export const ListTypeStore = create<IListType>()(
   devtools((set) => ({
-    filterList: [],
+    listType: 'filter',
     actions: {
-      setFilterList: (items: IFilterList['filterList']) =>
-        set(() => ({ filterList: items }), false, 'setFilterList'),
-      resetFilterList: () => set(() => ({ filterList: [] }), false, 'setresetFilterList'),
+      setFilterType: () => set(() => ({ listType: 'filter' }), false, 'setFilterType'),
+      setMagazineType: () => set(() => ({ listType: 'magazine' }), false, 'setMagazineType'),
     },
   })),
 );
 
 // 🎉 one selector for all our actions
-export const useFilterListActions = () => FilterListStore((state) => state.actions);
-
-export const MagazineListStore = create<IMagazineList>()(
-  devtools((set) => ({
-    magazineList: [],
-    actions: {
-      setMagazineList: (items: IMagazineList['magazineList']) =>
-        set(() => ({ magazineList: items }), false, 'setMagazineList'),
-      resetMagazineList: () => set(() => ({ magazineList: [] }), false, 'setresetMagazineList'),
-    },
-  })),
-);
-
-// 🎉 one selector for all our actions
-export const useMagazineActions = () => MagazineListStore((state) => state.actions);
+export const useFilterListActions = () => ListTypeStore((state) => state.actions);

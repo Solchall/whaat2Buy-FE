@@ -9,4 +9,4 @@ export type { IReqGetList, IResGetMagazineList, IResGetFilterList } from './apis
 
 export type { IItem } from './items';
 
-export type { IFilterList, IMagazineList } from './list';
+export type { IListType } from './list';

@@ -66,7 +66,6 @@ const List = () => {
     <>
       {filterItems && filterList}
       {magazineItems && magazineList}
-      {/*{magazineList && MagazineItemsList}*/}
     </>
   );
 };

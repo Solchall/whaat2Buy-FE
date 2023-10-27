@@ -1,23 +1,9 @@
-import { IItem } from 'types';
-
-interface IFilterList {
-  filterList: IItem[] | [];
-  actions: IFilterListActions;
+interface IListType {
+  listType: 'filter' | 'magazine';
+  actions: {
+    setFilterType: () => void;
+    setMagazineType: () => void;
+  };
 }
 
-interface IFilterListActions {
-  setFilterList: (items: any) => void;
-  resetFilterList: () => void;
-}
-
-interface IMagazineList {
-  magazineList: IItem[] | [];
-  actions: IMagazineListActions;
-}
-
-interface IMagazineListActions {
-  setMagazineList: (items: any) => void;
-  resetMagazineList: () => void;
-}
-
-export type { IFilterList, IMagazineList };
+export type { IListType };
