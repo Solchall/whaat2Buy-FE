@@ -1,5 +1,6 @@
 import { SkinOutlined } from '@ant-design/icons';
+import * as S from './styles';
 
 export const PrefixIcon = () => {
-  return <SkinOutlined style={{ fontSize: '16px', color: '#000' }} rev={undefined} />;
+  return <SkinOutlined style={S.Icon} rev={undefined} />;
 };

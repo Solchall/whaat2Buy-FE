@@ -1,12 +1,17 @@
 import { ChangeEvent, FormEvent, useEffect } from 'react';
 import { QueryStore, QueryPlaceHolderStore } from '../../../store';
 import { PrefixIcon } from './prefix';
-import { StyledButton, StyledFormContainer, StyledInputContainer, StyledInput } from './styles';
+import * as S from './styles';
 import { QueryPlaceHolder } from 'constant/texts';
 
 const Input = () => {
   const { query, setQuery } = QueryStore();
   const { idx, setPlaceHolderIdx } = QueryPlaceHolderStore();
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('페이지 이동', query);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => setPlaceHolderIdx(), 2000);
@@ -15,19 +20,18 @@ const Input = () => {
     };
   }, []);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('페이지 이동');
+  const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setQuery(e.target.value);
   };
-  const handleQueryChange = (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
   return (
     <>
-      <div className="w-full">
-        <form className={StyledFormContainer} onSubmit={handleSubmit}>
-          <div className={StyledInputContainer}>
+      <div className={S.QueryLayout}>
+        <form className={S.FormContainer} onSubmit={handleSubmit}>
+          <div className={S.InputContainer}>
             <PrefixIcon />
             <input
-              className={StyledInput}
+              className={S.InputWrapper}
               placeholder={QueryPlaceHolder[idx]}
               name="query"
               role="getInitialDemandQuery"
@@ -36,7 +40,7 @@ const Input = () => {
             />
           </div>
 
-          <button className={StyledButton} type="submit">
+          <button className={S.Button} type="submit">
             Search
           </button>
         </form>
