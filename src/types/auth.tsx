@@ -13,4 +13,12 @@ interface LoginActions {
   setForm: (props: LoginFormState) => void;
 }
 
-export type { ILoginForm, LoginFormState };
+interface IAuthButton {
+  children: string;
+  type: 'submit' | 'button' | 'reset';
+  style?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+export type { ILoginForm, LoginFormState, IAuthButton };

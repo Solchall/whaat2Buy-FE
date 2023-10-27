@@ -11,4 +11,4 @@ export type { IItem } from './items';
 
 export type { IListType } from './list';
 
-export type { ILoginForm, LoginFormState } from './auth';
+export type { ILoginForm, LoginFormState, IAuthButton } from './auth';
