@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home } from './pages';
+import { Home, List } from './pages';
 import { DefaultLayout } from 'components';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/list" element={<List />} />
         </Route>
       </Routes>
     </BrowserRouter>

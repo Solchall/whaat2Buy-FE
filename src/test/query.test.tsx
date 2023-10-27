@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import { QueryStore, QueryState, QueryStoreValueProps } from 'store/query';
+import { QueryStore } from 'store/query';
+import { QueryStoreValueProps, QueryState } from 'types';
 
 interface TestComponentProps {
   selector: (store: QueryState) => QueryStoreValueProps | Partial<QueryState>;

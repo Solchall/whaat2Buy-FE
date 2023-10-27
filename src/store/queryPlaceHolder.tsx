@@ -1,19 +1,9 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { QueryPlaceHolderState } from 'types';
 import { QueryPlaceHolder } from 'constant/texts';
 
-export interface PlaceHolderState {
-  idx: number;
-  setPlaceHolderIdx: () => void;
-  resetPlaceHolderIdx: () => void;
-}
-
-export type PlaceHolderValueProps =
-  | PlaceHolderState['idx']
-  | PlaceHolderState['setPlaceHolderIdx']
-  | PlaceHolderState['resetPlaceHolderIdx'];
-
-export const QueryPlaceHolderStore = create<PlaceHolderState>()(
+export const QueryPlaceHolderStore = create<QueryPlaceHolderState>()(
   devtools((set) => ({
     idx: 0,
     setPlaceHolderIdx: () =>

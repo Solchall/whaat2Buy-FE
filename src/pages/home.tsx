@@ -2,9 +2,8 @@ import { AnimatedTitle, QueryInput } from 'components';
 
 const Home = () => {
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <div className="w-2/5">
-        {' '}
+    <div className={S.HomeLayout}>
+      <div className={S.HomeContainer}>
         <AnimatedTitle />
         <QueryInput />
       </div>
@@ -13,3 +12,12 @@ const Home = () => {
 };
 
 export default Home;
+
+const HomeLayout = 'h-screen flex flex-col items-center justify-center';
+
+const HomeContainer = 'w-2/5';
+
+const S = {
+  HomeContainer,
+  HomeLayout,
+};
