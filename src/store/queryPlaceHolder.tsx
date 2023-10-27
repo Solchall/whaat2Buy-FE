@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { QueryPlaceHolderState } from 'types';
+import { IQueryPlaceHolder } from 'types';
 import { QueryPlaceHolder } from 'constant/texts';
 
-export const QueryPlaceHolderStore = create<QueryPlaceHolderState>()(
+export const QueryPlaceHolderStore = create<IQueryPlaceHolder>()(
   devtools((set) => ({
     idx: 0,
     setPlaceHolderIdx: () =>

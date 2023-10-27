@@ -2,10 +2,10 @@
 import { useEffect } from 'react';
 import { render } from '@testing-library/react';
 import { QueryStore } from 'store/query';
-import { QueryStoreValueProps, QueryState } from 'types';
+import { IQueryStoreValue, IQuery } from 'types';
 
 interface TestComponentProps {
-  selector: (store: QueryState) => QueryStoreValueProps | Partial<QueryState>;
+  selector: (store: IQuery) => IQueryStoreValue | Partial<IQuery>;
   effect: jest.Mock<any, any>;
 }
 
@@ -23,19 +23,19 @@ beforeEach(() => {
 
 // 초기 query 값 빈 문자열인지 확인
 test('초기 store의 query 값이 빈 문자열임', () => {
-  const selector = (store: QueryState): QueryStoreValueProps => store.query;
+  const selector = (store: IQuery): IQueryStoreValue => store.query;
   const effect = jest.fn();
   render(<TestComponent selector={selector} effect={effect} />);
   expect(effect).toHaveBeenCalledWith('');
 });
 
 test('입력한 값이 store의 query값으로 설정되며 effect로 반환됨', () => {
-  const selector = (store: QueryState): Pick<QueryState, 'query' | 'setQuery'> => ({
+  const selector = (store: IQuery): Pick<IQuery, 'query' | 'setQuery'> => ({
     query: store.query,
     setQuery: store.setQuery,
   });
   const intialDemand = 'y2k 패션 추천해줘';
-  let currentItem: QueryState;
+  let currentItem: IQuery;
   const effect = jest.fn().mockImplementation((item) => {
     currentItem = item;
     if (item.query.length === 0) {
@@ -47,13 +47,13 @@ test('입력한 값이 store의 query값으로 설정되며 effect로 반환됨'
 });
 
 test('입력한 값을 가진 store의 query값이 빈 문자열로 초기화되어 effect로 반환됨', () => {
-  const selector = (store: QueryState): Pick<QueryState, 'query' | 'setQuery' | 'resetQuery'> => ({
+  const selector = (store: IQuery): Pick<IQuery, 'query' | 'setQuery' | 'resetQuery'> => ({
     query: store.query,
     setQuery: store.setQuery,
     resetQuery: store.resetQuery,
   });
   let enterInitialDemand = false;
-  let currentItem: QueryState;
+  let currentItem: IQuery;
   const intialDemand = 'y2k 패션 추천해줘';
   const effect = jest.fn().mockImplementation((item) => {
     currentItem = item;

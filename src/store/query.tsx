@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { QueryState } from 'types';
+import { IQuery } from 'types';
 
-export const QueryStore = create<QueryState>()(
+export const QueryStore = create<IQuery>()(
   devtools((set) => ({
     query: '',
     setQuery: (input: string) => set(() => ({ query: input }), false, 'setQuery'),
