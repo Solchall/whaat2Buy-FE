@@ -42,6 +42,7 @@ module.exports = {
     ],
     "rules": {
         "react/react-in-jsx-scope":"off", // 불필요한 import React 문 삭제
-        "react/no-unescaped-entities":"off"
+        "react/no-unescaped-entities":"off",
+        "@typescript-eslint/no-explicit-any":"off"
     }
 }
