@@ -13,5 +13,6 @@ export const ListTypeStore = create<IListType>()(
   })),
 );
 
+export const useListType = () => ListTypeStore((state) => state.listType);
 // 🎉 one selector for all our actions
-export const useFilterListActions = () => ListTypeStore((state) => state.actions);
+export const useListTypeActions = () => ListTypeStore((state) => state.actions);

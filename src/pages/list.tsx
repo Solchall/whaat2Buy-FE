@@ -2,6 +2,7 @@ import { useQuery } from 'react-query';
 import { QueryStore } from 'store';
 import { getFilteringList, getMagazineList } from 'apis/list.apis';
 import { IItem } from 'types';
+import { ListItems, SwitchBtn } from 'components';
 
 const List = () => {
   const query = QueryStore((state) => state.query);
@@ -66,6 +67,8 @@ const List = () => {
     <>
       {filterItems && filterList}
       {magazineItems && magazineList}
+      <SwitchBtn />
+      <ListItems />
     </>
   );
 };
