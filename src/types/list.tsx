@@ -1,5 +1,5 @@
 interface IListType {
-  listType: 'filter' | 'magazine';
+  listType: string;
   actions: {
     setFilterType: () => void;
     setMagazineType: () => void;

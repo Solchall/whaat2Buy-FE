@@ -8,12 +8,16 @@ const SwitchBtn = () => {
     console.log(listType);
 
     if (listType === 'filter') {
-      setFilterType();
-    } else {
       setMagazineType();
+    } else {
+      setFilterType();
     }
   };
-  return <button onClick={handleBtnClick}>바꾸기</button>;
+  return (
+    <button className="text-white" onClick={handleBtnClick}>
+      바꾸기
+    </button>
+  );
 };
 
 export default SwitchBtn;
