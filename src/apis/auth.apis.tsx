@@ -4,7 +4,9 @@ import { IReqLogin, IResLogin, IReqSignup, IResSignup, IResAccessToken } from 't
 const PREFIX_URL = '/auth';
 
 /**
- * 로그인 - 유저 로그인
+ * 로그인
+ * 유저 로그인
+ * accessToken과 유저 id 반환 받으며 refreshToken은 쿠키로 설정됨
  * @route POST /auth/login
  * @email email
  * @password password
@@ -25,7 +27,8 @@ const login = async (data: IReqLogin) => {
 };
 
 /**
- * 회원 가입 - 유저 회원가입
+ * 회원 가입
+ * 새로운 유저 회원가입
  * @route POST /auth/signup
  * @username 유저 이름
  * @email 이메일
