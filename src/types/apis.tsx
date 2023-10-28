@@ -1,4 +1,19 @@
+import { LoginFormState, SignUpFormState } from './auth';
 import { IItem } from './items';
+
+type IReqLogin = LoginFormState;
+
+interface IResLogin {
+  id: string;
+  accessToken: string;
+}
+
+type IReqSignup = SignUpFormState;
+type IResAccessToken = IResLogin;
+
+interface IResSignup {
+  success: boolean;
+}
 
 interface IReqGetList {
   apikey: string;
@@ -26,4 +41,13 @@ interface IResGetMagazineList {
   };
 }
 
-export type { IReqGetList, IResGetFilterList, IResGetMagazineList };
+export type {
+  IReqGetList,
+  IResGetFilterList,
+  IResGetMagazineList,
+  IReqLogin,
+  IResLogin,
+  IReqSignup,
+  IResSignup,
+  IResAccessToken,
+};

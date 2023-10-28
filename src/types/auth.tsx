@@ -1,3 +1,4 @@
+/** Login 관련 */
 interface ILoginForm extends LoginFormState {
   actions: LoginActions;
 }
@@ -13,6 +14,15 @@ interface LoginActions {
   setForm: (props: LoginFormState) => void;
 }
 
+/** Signup 관련 */
+interface SignUpFormState {
+  username: string;
+  email: string;
+  openAI: string;
+  password: string;
+}
+
+/** Login과 signup에 사용되는 버튼 UI  */
 interface IAuthButton {
   children: string;
   type: 'submit' | 'button' | 'reset';
@@ -21,4 +31,4 @@ interface IAuthButton {
   disabled?: boolean;
 }
 
-export type { ILoginForm, LoginFormState, IAuthButton };
+export type { ILoginForm, LoginFormState, SignUpFormState, IAuthButton };

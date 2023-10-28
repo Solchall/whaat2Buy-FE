@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const axiosDefaultConfig: AxiosRequestConfig = {
-  baseURL: `${process.env.REACT_APP_SERVER_API}/api`,
+  baseURL: `${process.env.REACT_APP_SERVER_API}`,
 };
 const defaultAxios = axios.create(axiosDefaultConfig);
 
