@@ -16,6 +16,7 @@ export type {
   IResAccessToken,
   IResRefreshToken,
   ILogoutAll,
+  IInfo,
 } from './apis';
 
 export type { IItem } from './items';
@@ -23,3 +24,5 @@ export type { IItem } from './items';
 export type { IListType } from './list';
 
 export type { ILoginForm, LoginFormState, IAuthButton, SignUpFormState } from './auth';
+
+export type { IUser } from './user';

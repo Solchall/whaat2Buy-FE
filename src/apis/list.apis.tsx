@@ -7,7 +7,7 @@ const PREFIX: string = '/items';
  * @apikey apiKey
  * @userNeed userNeed
  */
-export const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
+const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
   console.log('getFilterList', body);
   try {
     const {
@@ -26,7 +26,7 @@ export const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
  * @apikey apiKey
  * @userNeed userNeed
  */
-export const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
+const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
   console.log('getMagazineList', body);
   try {
     const {
@@ -39,3 +39,5 @@ export const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
     throw new Error('ERror');
   }
 };
+
+export { getFilteringList, getMagazineList };

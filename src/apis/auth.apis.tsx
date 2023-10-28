@@ -22,11 +22,12 @@ const PREFIX_URL = '/auth';
  */
 
 const login = async (data: IReqLogin): Promise<IResLogin> => {
-  // console.log("login api", data);
+  console.log('login api', data);
   try {
     const response = await defaultAxios.post(`${PREFIX_URL}/login`, data);
     // console.log("login api response", response);
     const { id, accessToken }: IResLogin = response.data;
+    console.log(id, accessToken);
     privateAxios.defaults.headers.Authorization = `Bearer ${accessToken}`;
     return { id, accessToken };
   } catch (error) {

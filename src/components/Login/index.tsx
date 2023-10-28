@@ -2,8 +2,10 @@ import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import { ILoginForm, LoginFormState } from 'types';
 import { useNavigate } from 'react-router-dom';
-import * as S from './style';
+import { login, info } from 'apis';
+import { useUserActions } from 'store';
 
+import * as S from './style';
 import LoginValidation from './validation';
 
 const LoginForm = () => {
@@ -14,11 +16,17 @@ const LoginForm = () => {
 
     control,
   } = useForm<ILoginForm>({ mode: 'onChange' });
-  // const { setForm } = useLoginFormActions();
+  const { setUserId, setAccessToken, setUserInfo } = useUserActions();
 
   const handleFormSubmit = async (data: LoginFormState) => {
     try {
-      console.log(data);
+      const { id, accessToken } = await login(data);
+      setUserId(id);
+      setAccessToken(accessToken);
+      const userInfo = await info();
+      console.log(userInfo);
+      setUserInfo(userInfo);
+      navigate('/');
     } catch (error) {
       console.log(error);
     }

@@ -40,7 +40,12 @@ interface IResGetMagazineList {
     };
   };
 }
-
+interface IInfo {
+  username: string;
+  email: string;
+  openAI: string;
+  password: string;
+}
 export type {
   IReqGetList,
   IResGetFilterList,
@@ -52,4 +57,5 @@ export type {
   IResAccessToken,
   IResRefreshToken,
   ILogoutAll,
+  IInfo,
 };
