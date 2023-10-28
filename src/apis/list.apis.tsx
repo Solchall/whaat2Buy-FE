@@ -1,5 +1,6 @@
-import { defaultAxios } from './index';
-import { IReqGetList, IResGetFilterList, IResGetMagazineList, IItem } from 'types';
+//import { defaultAxios } from './index';
+import { IReqGetList, IItem, IResGetFilterList, IResGetMagazineList } from 'types';
+import { privateAxios } from 'apis';
 
 const PREFIX: string = '/items';
 /**
@@ -12,7 +13,7 @@ const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
   try {
     const {
       data: { filtering },
-    }: IResGetFilterList = await defaultAxios.post(`${PREFIX}/filtering`, body);
+    }: IResGetFilterList = await privateAxios.post(`${PREFIX}/filtering`, body);
 
     return filtering.clothes;
   } catch (error) {
@@ -31,7 +32,7 @@ const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
   try {
     const {
       data: { magazines },
-    }: IResGetMagazineList = await defaultAxios.post(`${PREFIX}/magazines`, body);
+    }: IResGetMagazineList = await privateAxios.post(`${PREFIX}/magazines`, body);
 
     return magazines.clothes;
   } catch (error) {

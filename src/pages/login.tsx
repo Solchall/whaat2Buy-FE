@@ -2,7 +2,7 @@ import { LoginForm } from 'components';
 
 const Login = () => {
   return (
-    <div className={S.FormLayout}>
+    <div className={S.LoginFormLayout}>
       <LoginForm />
     </div>
   );
@@ -10,8 +10,8 @@ const Login = () => {
 
 export default Login;
 
-const FormLayout = 'h-screen  flex flex-col items-center justify-center';
+const LoginFormLayout = 'h-screen  flex flex-col items-center justify-center';
 
 const S = {
-  FormLayout,
+  LoginFormLayout,
 };

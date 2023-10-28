@@ -4,4 +4,7 @@ export { default as DefaultLayout } from './Layout/default';
 export { default as QueryInput } from './Input/query';
 export { default as SwitchBtn } from './List/Chat/Button';
 export { default as ListItems } from './List/Items/Items';
+export { default as MyPageBtn } from './List/Header/MyPageBtn';
 export { default as LoginForm } from './Login';
+export { default as MainTitle } from './Common/Title';
+export { default as ListHeader } from './List/Header';
