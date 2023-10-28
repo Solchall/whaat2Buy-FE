@@ -1,20 +1,20 @@
 import { LoginFormState, SignUpFormState } from './auth';
 import { IItem } from './items';
 
-type IReqLogin = LoginFormState;
-
 interface IResLogin {
   id: string;
   accessToken: string;
 }
 
-type IReqSignup = SignUpFormState;
-type IResAccessToken = IResLogin;
-
 interface IResSignup {
   success: boolean;
 }
 
+type IReqLogin = LoginFormState;
+type IReqSignup = SignUpFormState;
+type IResAccessToken = IResLogin;
+type IResRefreshToken = IResLogin;
+type ILogoutAll = IResSignup;
 interface IReqGetList {
   apikey: string;
   userNeed: string;
@@ -50,4 +50,6 @@ export type {
   IReqSignup,
   IResSignup,
   IResAccessToken,
+  IResRefreshToken,
+  ILogoutAll,
 };
