@@ -32,9 +32,14 @@ const PaginationStore = create<IPagination>()(
     actions: {
       setCurrentPage: (input: number) =>
         set(() => ({ currentPage: input }), false, 'setCurrentPage'),
-      setPagesArray: (input: number) =>
+      setPagesArray: (totalItems: number) =>
         set(
-          () => ({ pagesArray: Array.from({ length: input }, (v, i) => i + 1) }),
+          (state) => ({
+            pagesArray: Array.from(
+              { length: Math.ceil(totalItems / state.itemsPerPage) },
+              (v, i) => i + 1,
+            ),
+          }),
           false,
           'setPagesArray',
         ),

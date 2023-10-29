@@ -1,4 +1,4 @@
-import { Loading } from 'components';
+import { Loading, Pagination } from 'components';
 import {
   useCurrentPage,
   useLastItemIndex,
@@ -40,12 +40,13 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
   );
   return (
     <div className={S.ListItemsWrapper}>
-      <Loading state={loadingState} />
+      {loadingState && <Loading />}
       {items?.slice(firstItemIdex, lastItemIndex).map((item) => (
         <div className="text-white" key={item.no}>
           {item.name}
         </div>
       ))}
+      {!loadingState && <Pagination />}
     </div>
   );
 };

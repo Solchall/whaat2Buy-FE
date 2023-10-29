@@ -10,5 +10,6 @@ export { default as MyPageBtn } from './List/Header/MyPageBtn';
 export { default as ListTitle } from './List/Header/Title';
 export { default as ListItems } from './List/Items';
 export { default as Loading } from './List/Items/Loading';
+export { default as Pagination } from './List/Paginations';
 
 export { default as Skeleton } from './Common/Skeleton';

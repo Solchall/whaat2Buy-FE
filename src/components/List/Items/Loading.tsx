@@ -1,21 +1,19 @@
 import { Skeleton } from 'components';
 
-const Loading = ({ state }: { state: boolean }) => {
+const Loading = () => {
   return (
     <>
-      {state ? (
-        <>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-        </>
-      ) : null}
+      <>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </>
     </>
   );
 };
