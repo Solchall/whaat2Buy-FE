@@ -6,16 +6,7 @@ import S from './styles';
 const Card = ({ item }: { item: IItem }) => {
   return (
     <motion.div variants={S.ItemAnimation} className={S.CardLayout}>
-      {/*
-      페이지 이동에 따른 애니메이션 적용 잘 되는지 확인하기 위해 Link 연결한 코드
-      <Link to={`/item=${item.no}"`}>
-        <div>
-          <img src={item.img} />
-          <span className="text-white">{item.no}</span>
-          <button className="text-white" onClick={e=>handleProductBtn(item.url)}>제품 선택</button>
-        </div>
-      </Link>*/}
-      <motion.div className={S.CardContainer}>
+      <div className={S.CardContainer}>
         <div className={S.IconContainer} style={{ zIndex: 50 }}>
           <button onClick={(e) => console.log('ask Clicked!!!', e)} className={S.AskButton}>
             <QuestionOutlined rev={undefined} style={S.AskIcon} />
@@ -43,7 +34,7 @@ const Card = ({ item }: { item: IItem }) => {
             <p className={S.CardName}>{item.name}</p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
