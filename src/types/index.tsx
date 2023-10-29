@@ -20,7 +20,7 @@ export type {
   IInfo,
 } from './apis';
 
-export type { IItem } from './items';
+export type { IItem, ISelectedItem } from './items';
 
 export type { IListType } from './list';
 
@@ -29,3 +29,4 @@ export type { ILoginForm, LoginFormState, IAuthButton, SignUpFormState } from '.
 export type { IUser } from './user';
 
 export type { IPagination } from './pagination';
+export type { IMessage, IMessages } from './messages';
