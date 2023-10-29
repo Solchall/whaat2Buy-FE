@@ -41,12 +41,6 @@ const ListItems = () => {
   const LoadingState = filterLoading || filterFetching || magazineFetching || magazineLoading;
 
   return (
-    /*<div>
-      <span className="text-white"> {listType}</span>
-
-      {listType === 'filter' && <div className="text-white">filter List</div>}
-      {listType === 'magazine' && <div className="text-white">magazine List</div>}
-    </div>*/
     <div className={S.ListItemsContainer}>
       <ListItemsWrapper loadingState={LoadingState} items={Items} />
     </div>

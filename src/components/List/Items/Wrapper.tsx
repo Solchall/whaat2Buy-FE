@@ -1,4 +1,4 @@
-import { Loading, Pagination } from 'components';
+import { Card, Loading, Pagination } from 'components';
 import {
   useCurrentPage,
   useLastItemIndex,
@@ -9,6 +9,7 @@ import {
 import S from './styles';
 import { IItem } from 'types';
 import { useEffect } from 'react';
+import { motion, useAnimationControls } from 'framer-motion';
 
 interface IListItemsWrapper {
   loadingState: boolean;
@@ -21,6 +22,7 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
   const lastItemIndex = useLastItemIndex();
   const firstItemIdex = useFirstItemIndex();
   const { setPagesArray, setLastItemIndex, setFirstItemIndex } = usePaginationActions();
+  const divControls = useAnimationControls();
 
   useEffect(() => {
     setPagesArray(items?.length ? items.length : 0);
@@ -31,6 +33,10 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
     setFirstItemIndex();
   }, [currentPage]);
 
+  useEffect(() => {
+    divControls.start('show');
+  }, [items?.slice(firstItemIdex, lastItemIndex)]);
+
   console.log(
     currentPage,
     pagesArray,
@@ -39,15 +45,26 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
     items?.slice(firstItemIdex, lastItemIndex),
   );
   return (
-    <div className={S.ListItemsWrapper}>
-      {loadingState && <Loading />}
-      {items?.slice(firstItemIdex, lastItemIndex).map((item) => (
-        <div className="text-white" key={item.no}>
-          {item.name}
+    <>
+      {loadingState && (
+        <div className={S.ListItemsWrapper}>
+          <Loading />
         </div>
-      ))}
-      {!loadingState && <Pagination />}
-    </div>
+      )}
+
+      <motion.div
+        variants={S.ContainerAnimation}
+        initial="hidden"
+        exit="hidden"
+        animate={divControls}
+        className={S.ListItemsWrapper}
+      >
+        {items
+          ?.slice(firstItemIdex, lastItemIndex)
+          .map((item) => <Card item={item} key={item.no} />)}
+      </motion.div>
+      <div> {!loadingState && <Pagination />}</div>
+    </>
   );
 };
 

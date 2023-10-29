@@ -13,3 +13,4 @@ export { default as Loading } from './List/Items/Loading';
 export { default as Pagination } from './List/Paginations';
 
 export { default as Skeleton } from './Common/Skeleton';
+export { default as Card } from './List/Items/Card';
