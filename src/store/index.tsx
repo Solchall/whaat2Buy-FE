@@ -10,3 +10,12 @@ export {
   useUserOpenAI,
   useUserActions,
 } from './user';
+
+export {
+  useCurrentPage,
+  useItemsPerPage,
+  usePagesArray,
+  useLastItemIndex,
+  useFirstItemIndex,
+  usePaginationActions,
+} from './pagination';

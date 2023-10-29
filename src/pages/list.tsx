@@ -3,7 +3,7 @@
 import { QueryStore, useUserOpenAI } from 'store';
 //import { getFilteringList, getMagazineList } from 'apis/list.apis';
 // import { IItem } from 'types';
-import { ListHeader } from 'components';
+import { ListHeader, ListItems, SwitchBtn } from 'components';
 
 const List = () => {
   const query = QueryStore((state) => state.query);
@@ -60,6 +60,10 @@ const FilterQuery = {
   return (
     <div className={S.ListLayout}>
       <ListHeader />
+      <div className={S.ListContainer}>
+        <ListItems />
+      </div>
+      <SwitchBtn />
       {/*<button className="text-white" onClick={handlebtn}>
         페이지 이동
       </button>
@@ -72,7 +76,9 @@ const FilterQuery = {
 export default List;
 
 const ListLayout = 'p-4';
+const ListContainer = 'flex flex-row justify-center content-center py-5';
 
 const S = {
   ListLayout,
+  ListContainer,
 };

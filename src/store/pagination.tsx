@@ -1,64 +1,74 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { IUser } from 'types';
-/*
 
-interface IPagination extends UserState {
-  actions: UserActions;
+interface IPagination extends PaginationState {
+  actions: PaginationActions;
 }
 
-interface UserState {
-  email: string;
-  userId: string;
-  accessToken: string;
-  username: string;
-  openAI: string;
-  password?: string;
+interface PaginationState {
+  currentPage: number;
+  itemsPerPage: number;
+  pagesArray: number[];
+  lastItemIndex: number;
+  firstItemIndex: number;
 }
-interface UserActions {
-  setEmail: (input: string) => void;
-  setUserId: (input: string) => void;
-  setAccessToken: (input: string) => void;
-  setUsername: (input: string) => void;
-  setOpenAI: (input: string) => void;
-  resetUser: () => void;
-  setUserInfo: (input: Pick<UserState, 'email' | 'openAI' | 'username'>) => void;
-}
-*/
 
-const UserStore = create<IUser>()(
+interface PaginationActions {
+  setCurrentPage: (input: number) => void;
+  resetCurrentPage: () => void;
+  setPagesArray: (input: number) => void;
+  setLastItemIndex: () => void;
+  setFirstItemIndex: () => void;
+}
+
+const PaginationStore = create<IPagination>()(
   devtools((set) => ({
-    email: '',
-    userId: '',
-    accessToken: '',
-    username: '',
-    openAI: '',
+    currentPage: 1,
+    itemsPerPage: 9,
+    pagesArray: [],
+    lastItemIndex: 0,
+    firstItemIndex: 0,
 
     actions: {
-      setEmail: (input) => set(() => ({ email: input }), false, 'setEmail'),
-      setUserId: (input) => set(() => ({ userId: input }), false, 'setUserId'),
-      setAccessToken: (input) => set(() => ({ password: input }), false, 'setAccessToken'),
-      setUsername: (input) => set(() => ({ username: input }), false, 'setUsername'),
-      setOpenAI: (input) => set(() => ({ openAI: input }), false, 'setOpenAI'),
-      resetUser: () =>
+      setCurrentPage: (input: number) =>
+        set(() => ({ currentPage: input }), false, 'setCurrentPage'),
+      setPagesArray: (input: number) =>
         set(
-          () => ({ email: '', userId: '', accessToken: '', username: '', openAI: '' }),
+          () => ({ pagesArray: Array.from({ length: input }, (v, i) => i + 1) }),
           false,
-          'resetUser',
+          'setPagesArray',
         ),
-      setUserInfo: ({ username, email, openAI }) =>
-        set(() => ({ username: username, email: email, openAI: openAI }), false, 'setUserInfo'),
+      resetCurrentPage: () => set(() => ({ currentPage: 1 }), false, 'resetCurrentPage'),
+      setLastItemIndex: () =>
+        set(
+          (state) => ({ lastItemIndex: state.currentPage * state.itemsPerPage }),
+          false,
+          'setPlaceHolderIdx',
+        ),
+      setFirstItemIndex: () =>
+        set(
+          (state) => ({ firstItemIndex: state.lastItemIndex - state.itemsPerPage }),
+          false,
+          'setPlaceHolderIdx',
+        ),
     },
   })),
 );
 
-const useUserEmail = () => UserStore((state) => state.email);
-const useUserId = () => UserStore((state) => state.userId);
-const useUserAccessToken = () => UserStore((state) => state.accessToken);
-const useUserName = () => UserStore((state) => state.username);
-const useUserOpenAI = () => UserStore((state) => state.openAI);
+const useCurrentPage = () => PaginationStore((state) => state.currentPage);
+const useItemsPerPage = () => PaginationStore((state) => state.itemsPerPage);
+const usePagesArray = () => PaginationStore((state) => state.pagesArray);
+const useLastItemIndex = () => PaginationStore((state) => state.lastItemIndex);
+const useFirstItemIndex = () => PaginationStore((state) => state.firstItemIndex);
 
 // 🎉 one selector for all our actions
-const useUserActions = () => UserStore((state) => state.actions);
+const usePaginationActions = () => PaginationStore((state) => state.actions);
 
-export { useUserEmail, useUserId, useUserAccessToken, useUserName, useUserOpenAI, useUserActions };
+export {
+  useCurrentPage,
+  useItemsPerPage,
+  usePagesArray,
+  useLastItemIndex,
+  useFirstItemIndex,
+  usePaginationActions,
+};

@@ -1,10 +1,10 @@
-import { MainTitle, MyPageBtn } from 'components';
+import { ListTitle, MyPageBtn } from 'components';
 import S from './styles';
 
 const ListHeader = () => {
   return (
     <div className={S.HeaderContainer}>
-      <MainTitle textSize={2} />
+      <ListTitle />
       <MyPageBtn />
     </div>
   );
