@@ -9,7 +9,9 @@ export { default as ListHeader } from './List/Header';
 export { default as MyPageBtn } from './List/Header/MyPageBtn';
 export { default as ListTitle } from './List/Header/Title';
 export { default as ListItems } from './List/Items';
-export { default as Loading } from './List/Items/Loading';
+
+export { default as LoadingContainer } from './List/Items/Wrapper/Loadings';
+export { default as CardContainer } from './List/Items/Wrapper/Cards';
 export { default as Pagination } from './List/Paginations';
 
 export { default as Skeleton } from './Common/Skeleton';

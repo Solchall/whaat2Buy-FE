@@ -26,3 +26,5 @@ export type { IListType } from './list';
 export type { ILoginForm, LoginFormState, IAuthButton, SignUpFormState } from './auth';
 
 export type { IUser } from './user';
+
+export type { IPagination } from './pagination';

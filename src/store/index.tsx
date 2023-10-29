@@ -19,3 +19,5 @@ export {
   useFirstItemIndex,
   usePaginationActions,
 } from './pagination';
+
+export { useCurrentItems, useCurrentItemsActions } from './currentItems';
