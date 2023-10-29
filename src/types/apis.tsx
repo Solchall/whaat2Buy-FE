@@ -55,6 +55,15 @@ interface IResDetail {
   simple_detail: string;
   message: string;
 }
+interface IResSize {
+  size_reco: string;
+  message: string;
+}
+
+interface IResReview {
+  review_summ: string;
+  message: string;
+}
 interface IReqAddAskedItem {
   owner: string; // userId
   type: string; // initial Demand
@@ -93,4 +102,6 @@ export type {
   IResAddAskedItem,
   IReqItem,
   IResDetail,
+  IResSize,
+  IResReview,
 };

@@ -24,6 +24,8 @@ export type {
   IResAddAskedItem,
   IReqItem,
   IResDetail,
+  IResSize,
+  IResReview,
 } from './apis';
 
 export type { IItem, ISelectedItem } from './items';

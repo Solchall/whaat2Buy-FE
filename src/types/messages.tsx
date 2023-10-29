@@ -1,3 +1,5 @@
+import { IItem } from './items';
+
 interface IMessages extends MessageState {
   actions: MessagesActions;
 }
@@ -15,6 +17,7 @@ interface IMessage {
   from: string;
   type?: string;
   content: string;
+  item?: IItem;
 }
 
 export type { IMessages, IMessage };

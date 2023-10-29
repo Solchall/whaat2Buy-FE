@@ -4,7 +4,6 @@ export { default as AnimatedTitle } from './Main/AnimatedTitle';
 export { default as DefaultLayout } from './Layout/default';
 
 export { default as LoginForm } from './Login';
-export { default as SwitchBtn } from './List/Chat/Button';
 export { default as ListHeader } from './List/Header';
 export { default as MyPageBtn } from './List/Header/MyPageBtn';
 export { default as ListTitle } from './List/Header/Title';

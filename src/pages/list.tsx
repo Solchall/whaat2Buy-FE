@@ -3,7 +3,7 @@
 import { useQuery, useUserOpenAI } from 'store';
 //import { getFilteringList, getMagazineList } from 'apis/list.apis';
 // import { IItem } from 'types';
-import { ListHeader, ListItems, SwitchBtn, ChatItems } from 'components';
+import { ListHeader, ListItems, ChatItems } from 'components';
 
 const List = () => {
   const query = useQuery();
@@ -65,13 +65,6 @@ const FilterQuery = {
 
         <ChatItems />
       </div>
-
-      <SwitchBtn />
-      {/*<button className="text-white" onClick={handlebtn}>
-        페이지 이동
-      </button>
-      <SwitchBtn />
-      <ListItems />*/}
     </div>
   );
 };

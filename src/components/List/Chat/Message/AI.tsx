@@ -1,11 +1,13 @@
 import { ThunderboltOutlined } from '@ant-design/icons';
-import { useListType, useListTypeActions } from 'store';
+import { review, size } from 'apis';
+import { useListType, useListTypeActions, useMessagesActions, useUserOpenAI } from 'store';
 import { IMessage } from 'types';
 
-const AIMessage = ({ message: { content, type, from } }: { message: IMessage }) => {
+const AIMessage = ({ message: { content, type, from, item } }: { message: IMessage }) => {
   console.log(content);
-
+  const openAI = useUserOpenAI();
   const { setFilterType, setMagazineType } = useListTypeActions();
+  const { addMessage } = useMessagesActions();
   const listType = useListType();
 
   const handleCategorySwitch = () => {
@@ -17,8 +19,21 @@ const AIMessage = ({ message: { content, type, from } }: { message: IMessage }) 
       setFilterType();
     }
   };
-  const handleRecQuestion = (type: string) => {
-    console.log(type);
+  console.log(from, item);
+  const handleRecQuestion = async (type: string) => {
+    const body = {
+      apikey: openAI,
+      productUrl: `https://www.musinsa.com/app/goods/${item?.no}`,
+    };
+    if (type === 'size' && item) {
+      const { size_reco } = await size(body);
+      addMessage({ from: 'AI', type: 'answer', item: item, content: size_reco });
+    } else if (type === 'review' && item) {
+      const { review_summ } = await review(body);
+      addMessage({ from: 'AI', type: 'answer', item: item, content: review_summ });
+    } else {
+      console.log('기타 요청');
+    }
   };
   return (
     <>
@@ -37,13 +52,13 @@ const AIMessage = ({ message: { content, type, from } }: { message: IMessage }) 
       )}
       {type === 'answer' && (
         <div className="max-w-[80%] flex flew-row justify-between">
-          <button
+          {/*<button
             className="text-white place-self-start border-2 border-zinc-800 text-zinc-300 py-1 px-2 rounded-xl hover:bg-zinc-800"
             onClick={() => handleRecQuestion('basic')}
           >
             <ThunderboltOutlined rev={undefined} className="mr-1.5" />
             기본 정보 요청
-          </button>
+          </button>*/}
           <button
             className="text-white place-self-start border-2 border-zinc-800 text-zinc-300 py-1 px-2 rounded-xl hover:bg-zinc-800"
             onClick={() => handleRecQuestion('size')}
