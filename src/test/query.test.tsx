@@ -30,9 +30,9 @@ test('초기 store의 query 값이 빈 문자열임', () => {
 });
 
 test('입력한 값이 store의 query값으로 설정되며 effect로 반환됨', () => {
-  const selector = (store: IQuery): Pick<IQuery, 'query' | 'setQuery'> => ({
+  const selector = (store: IQuery) => ({
     query: store.query,
-    setQuery: store.setQuery,
+    setQuery: store.actions.setQuery,
   });
   const intialDemand = 'y2k 패션 추천해줘';
   let currentItem: IQuery;
@@ -47,10 +47,10 @@ test('입력한 값이 store의 query값으로 설정되며 effect로 반환됨'
 });
 
 test('입력한 값을 가진 store의 query값이 빈 문자열로 초기화되어 effect로 반환됨', () => {
-  const selector = (store: IQuery): Pick<IQuery, 'query' | 'setQuery' | 'resetQuery'> => ({
+  const selector = (store: IQuery) => ({
     query: store.query,
-    setQuery: store.setQuery,
-    resetQuery: store.resetQuery,
+    setQuery: store.actions.setQuery,
+    resetQuery: store.actions.resetQuery,
   });
   let enterInitialDemand = false;
   let currentItem: IQuery;

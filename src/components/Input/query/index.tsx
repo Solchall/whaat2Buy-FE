@@ -1,12 +1,13 @@
 import { ChangeEvent, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { QueryStore, QueryPlaceHolderStore } from '../../../store';
+import { useQuery, QueryPlaceHolderStore, useQueryActions } from 'store';
 import { PrefixIcon } from './prefix';
 import * as S from './styles';
 import { QueryPlaceHolder } from 'constant/texts';
 
 const Input = () => {
-  const { query, setQuery } = QueryStore();
+  const query = useQuery();
+  const { setQuery } = useQueryActions();
   const { idx, setPlaceHolderIdx } = QueryPlaceHolderStore();
   const navigate = useNavigate();
 

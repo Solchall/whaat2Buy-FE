@@ -1,10 +1,17 @@
-interface IQuery {
+interface IQuery extends QueryState {
+  actions: QueryActions;
+}
+
+interface QueryState {
   query: string;
+}
+
+interface QueryActions {
   setQuery: (input: string) => void;
   resetQuery: () => void;
 }
 
-type IQueryStoreValue = IQuery['query'] | IQuery['resetQuery'] | IQuery['setQuery'];
+type IQueryStoreValue = IQuery['query'] | QueryActions['setQuery'] | QueryActions['setQuery'];
 
 interface IQueryPlaceHolder {
   idx: number;

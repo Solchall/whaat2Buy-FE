@@ -1,5 +1,5 @@
 import { useListType } from 'store';
-import { QueryStore, useUserOpenAI } from 'store';
+import { useQuery as useQueryState, useUserOpenAI } from 'store';
 import S from './styles';
 import { useQuery } from 'react-query';
 import { getFilteringList, getMagazineList } from 'apis';
@@ -7,7 +7,7 @@ import ListItemsWrapper from './Wrapper';
 
 const ListItems = () => {
   const listType = useListType();
-  const query = QueryStore((state) => state.query);
+  const query = useQueryState();
   // const navigation = useNavigate();
   const openAI = useUserOpenAI();
   const reqBody = {
