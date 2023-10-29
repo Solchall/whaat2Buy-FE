@@ -1,6 +1,9 @@
 import { AnimatedTitle, QueryInput } from 'components';
+import { useUserEmail } from 'store';
 
 const Home = () => {
+  const userEmail = useUserEmail();
+  console.log(userEmail);
   return (
     <div className={S.HomeLayout}>
       <div className={S.HomeContainer}>

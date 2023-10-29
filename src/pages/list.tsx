@@ -1,22 +1,24 @@
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
-import { QueryStore } from 'store';
-import { getFilteringList, getMagazineList } from 'apis/list.apis';
+//import { useQuery } from 'react-query';
+// import { useNavigate } from 'react-router-dom';
+import { QueryStore, useUserOpenAI } from 'store';
+//import { getFilteringList, getMagazineList } from 'apis/list.apis';
 // import { IItem } from 'types';
-import { ListItems, SwitchBtn } from 'components';
+import { ListHeader, ListItems, SwitchBtn } from 'components';
 
 const List = () => {
   const query = QueryStore((state) => state.query);
-  const navigation = useNavigate();
-  const handlebtn = () => {
+  // const navigation = useNavigate();
+  const openAI = useUserOpenAI();
+  console.log(openAI, query);
+  /*const handlebtn = () => {
     navigation('/tt');
-  };
-  const reqBody = {
-    apikey: process.env.REACT_APP_OPEN_AI_KEY || '',
+  };*/
+  /*  const reqBody = {
+    apikey: openAI,
     userNeed: query,
   };
 
-  const FilterQuery = {
+const FilterQuery = {
     queryKey: ['filtering', query],
     queryFn: () => getFilteringList(reqBody),
     // userNeed 값 비어 있는 경우, disabled로 됨
@@ -56,14 +58,27 @@ const List = () => {
   ));*/
 
   return (
-    <>
-      <button className="text-white" onClick={handlebtn}>
+    <div className={S.ListLayout}>
+      <ListHeader />
+      <div className={S.ListContainer}>
+        <ListItems />
+      </div>
+      <SwitchBtn />
+      {/*<button className="text-white" onClick={handlebtn}>
         페이지 이동
       </button>
       <SwitchBtn />
-      <ListItems />
-    </>
+      <ListItems />*/}
+    </div>
   );
 };
 
 export default List;
+
+const ListLayout = 'p-4';
+const ListContainer = 'flex flex-row justify-center content-center py-5';
+
+const S = {
+  ListLayout,
+  ListContainer,
+};
