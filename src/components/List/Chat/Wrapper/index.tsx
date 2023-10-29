@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { AskInput } from 'components';
 
-const ChatsList = () => {
+const ChatMsg = () => {
   const scrollRef = useRef<null | HTMLDivElement>(null);
   return (
     <div className="flex flex-col justify-between">
@@ -12,4 +12,4 @@ const ChatsList = () => {
   );
 };
 
-export default ChatsList;
+export default ChatMsg;

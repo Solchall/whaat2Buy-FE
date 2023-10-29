@@ -24,7 +24,7 @@ const AskInput = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="pt-5">
       <Input
         placeholder="추천 질문 리스트"
         prefix={prefixIcon}
