@@ -2,7 +2,7 @@ import { IMessage } from 'types';
 
 const ClientMessage = ({ message: { content, type, from } }: { message: IMessage }) => {
   return (
-    <div>
+    <div className="place-self-end rounded-2xl bg-zinc-800 text-white max-w-[75%] p-4 my-4">
       {content} {type} {from}
     </div>
   );

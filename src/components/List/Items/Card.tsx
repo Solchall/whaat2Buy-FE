@@ -2,24 +2,37 @@ import { motion } from 'framer-motion';
 import { HeartOutlined, QuestionOutlined } from '@ant-design/icons';
 import { IItem, IReqLikes } from 'types';
 import S from './styles';
-import { likes } from 'apis/users.apis';
+import { likes } from 'apis';
+import { CreateClientMessage } from 'constant';
+import { useMessagesActions } from 'store';
 
 const Card = ({ item }: { item: IItem }) => {
-  const handleHearBtn = async (clothId: IReqLikes['clothId']) => {
+  const { addMessage } = useMessagesActions();
+  const handleHeartBtn = async (clothId: IReqLikes['clothId']) => {
     const response = await likes({ clothId });
     console.log(response, item);
+  };
+
+  const handleAskBtn = async (name: string, clothId: IReqLikes['clothId']) => {
+    const AskMessage = {
+      from: 'Client',
+      type: 'initial',
+      content: CreateClientMessage(name, 'initial'),
+    };
+    addMessage(AskMessage);
+    console.log(clothId);
   };
   return (
     <motion.div variants={S.ItemAnimation} className={S.CardLayout}>
       <div className={S.CardContainer}>
         <div className={S.IconContainer} style={{ zIndex: 50 }}>
-          <button onClick={(e) => console.log('ask Clicked!!!', e)} className={S.AskButton}>
+          <button onClick={() => handleAskBtn(item.name, item.no)} className={S.AskButton}>
             <QuestionOutlined rev={undefined} style={S.AskIcon} />
           </button>
 
           <button
             style={{ zIndex: -1 }}
-            onClick={() => handleHearBtn(item.no)}
+            onClick={() => handleHeartBtn(item.no)}
             className={S.HeartButton}
           >
             <HeartOutlined rev={undefined} style={S.HeartIcon} />

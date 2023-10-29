@@ -24,7 +24,7 @@ const MessagesStore = create<IMessages>()(
             ],
           }),
           false,
-          'addMessage',
+          'addInitialMessage',
         ),
     },
   })),
