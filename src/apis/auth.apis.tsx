@@ -50,9 +50,6 @@ const login = async (data: IReqLogin): Promise<IResLogin> => {
 const signup = async (data: IReqSignup): Promise<IResSignup> => {
   try {
     const response: IResSignup = await defaultAxios.post(`${PREFIX_URL}/signup`, data);
-    // console.log("login api response", response);
-    // const { id, accessToken } = response.data;
-    // privateAxios.defaults.headers.Authorization = `Bearer ${accessToken}`;
     return response;
   } catch (error) {
     console.log('Error', error);

@@ -18,6 +18,8 @@ export type {
   IResRefreshToken,
   ILogoutAll,
   IInfo,
+  IReqLikes,
+  IResLikes,
 } from './apis';
 
 export type { IItem, ISelectedItem } from './items';

@@ -40,12 +40,19 @@ interface IResGetMagazineList {
     };
   };
 }
+
+interface IReqLikes {
+  clothId: string;
+}
+
+type IResLikes = IResSignup;
 interface IInfo {
   username: string;
   email: string;
   openAI: string;
   password: string;
 }
+
 export type {
   IReqGetList,
   IResGetFilterList,
@@ -58,4 +65,6 @@ export type {
   IResRefreshToken,
   ILogoutAll,
   IInfo,
+  IReqLikes,
+  IResLikes,
 };

@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion';
 import { HeartOutlined, QuestionOutlined } from '@ant-design/icons';
-import { IItem } from 'types';
+import { IItem, IReqLikes } from 'types';
 import S from './styles';
+import { likes } from 'apis/users.apis';
 
 const Card = ({ item }: { item: IItem }) => {
+  const handleHearBtn = async (clothId: IReqLikes['clothId']) => {
+    const response = await likes({ clothId });
+    console.log(response, item);
+  };
   return (
     <motion.div variants={S.ItemAnimation} className={S.CardLayout}>
       <div className={S.CardContainer}>
@@ -14,7 +19,7 @@ const Card = ({ item }: { item: IItem }) => {
 
           <button
             style={{ zIndex: -1 }}
-            onClick={(e) => console.log('like Clicked!!!', e)}
+            onClick={() => handleHearBtn(item.no)}
             className={S.HeartButton}
           >
             <HeartOutlined rev={undefined} style={S.HeartIcon} />
