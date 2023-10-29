@@ -20,6 +20,10 @@ export type {
   IInfo,
   IReqLikes,
   IResLikes,
+  IReqAddAskedItem,
+  IResAddAskedItem,
+  IReqItem,
+  IResDetail,
 } from './apis';
 
 export type { IItem, ISelectedItem } from './items';

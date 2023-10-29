@@ -1,5 +1,5 @@
 import { privateAxios } from '.';
-import { IInfo, IReqLikes, IResLikes } from 'types';
+import { IInfo, IReqLikes, IResLikes, IReqAddAskedItem, IResAddAskedItem } from 'types';
 
 const PREFIX_URL = '/users';
 
@@ -37,5 +37,22 @@ const likes = async (data: IReqLikes): Promise<IResLikes> => {
     throw new Error('Error');
   }
 };
+/**
+ * asked
+ * 질의응답 진행한 옷 추가
+ * @route POST /users/asked
+ * @access private
+ */
+const addAskedCloth = async (body: IReqAddAskedItem): Promise<IResAddAskedItem['data']> => {
+  try {
+    console.log(body);
+    const { data }: IResAddAskedItem = await privateAxios.post(`${PREFIX_URL}/asked`, body);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log('Error', error);
+    throw new Error('Error');
+  }
+};
 
-export { info, likes };
+export { info, likes, addAskedCloth };

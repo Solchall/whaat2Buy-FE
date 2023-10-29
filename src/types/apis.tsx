@@ -46,6 +46,28 @@ interface IReqLikes {
 }
 
 type IResLikes = IResSignup;
+
+interface IReqItem {
+  apikey: string;
+  productUrl: string;
+}
+interface IResDetail {
+  simple_detail: string;
+  message: string;
+}
+interface IReqAddAskedItem {
+  owner: string; // userId
+  type: string; // initial Demand
+  clothId: string; // clothId
+  message: string; //asked Message
+}
+
+interface IResAddAskedItem {
+  data: {
+    success: boolean;
+    message: string;
+  };
+}
 interface IInfo {
   username: string;
   email: string;
@@ -67,4 +89,8 @@ export type {
   IInfo,
   IReqLikes,
   IResLikes,
+  IReqAddAskedItem,
+  IResAddAskedItem,
+  IReqItem,
+  IResDetail,
 };
