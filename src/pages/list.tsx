@@ -62,9 +62,8 @@ const FilterQuery = {
       <ListHeader />
       <div className={S.ListContainer}>
         <ListItems />
-        <div className={S.ChatContainer}>
-          <ChatItems />
-        </div>
+
+        <ChatItems />
       </div>
 
       <SwitchBtn />
@@ -81,10 +80,8 @@ export default List;
 
 const ListLayout = 'p-4';
 const ListContainer = 'flex flex-row justify-center content-center py-5';
-const ChatContainer = 'w-2/5 bg-zinc-900 rounded-3xl p-5';
 
 const S = {
   ListLayout,
   ListContainer,
-  ChatContainer,
 };

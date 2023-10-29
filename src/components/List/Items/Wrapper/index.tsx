@@ -44,8 +44,7 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
   console.log(currentPage, pagesArray, lastItemIndex, firstItemIndex, currentItems);
   return (
     <>
-      {loadingState && <LoadingContainer />}
-      {currentItems && <CardContainer />}
+      {loadingState ? <LoadingContainer /> : <CardContainer />}
 
       {!loadingState && <Pagination />}
     </>

@@ -20,3 +20,5 @@ export { default as Card } from './List/Items/Card';
 export { default as ChatTitle } from './List/Chat/Header/Title';
 export { default as ChatHeader } from './List/Chat/Header';
 export { default as NewShopBtn } from './List/Chat/Header/Button';
+export { default as AskInput } from './List/Chat/Input';
+export { default as ChatsList } from './List/Chat/Wrapper';

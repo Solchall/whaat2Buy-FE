@@ -24,4 +24,17 @@ type IQueryPlaceHolderStoreValue =
   | IQueryPlaceHolder['setPlaceHolderIdx']
   | IQueryPlaceHolder['resetPlaceHolderIdx'];
 
-export type { IQuery, IQueryPlaceHolder, IQueryPlaceHolderStoreValue, IQueryStoreValue };
+interface IAskInput extends AskInputState {
+  actions: AskInputActions;
+}
+
+interface AskInputState {
+  askInput: string;
+}
+
+interface AskInputActions {
+  setAskInput: (input: string) => void;
+  resetAskInput: () => void;
+}
+
+export type { IQuery, IQueryPlaceHolder, IQueryPlaceHolderStoreValue, IQueryStoreValue, IAskInput };

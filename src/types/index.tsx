@@ -3,6 +3,7 @@ export type {
   IQuery,
   IQueryPlaceHolderStoreValue,
   IQueryStoreValue,
+  IAskInput,
 } from './query';
 
 export type {
