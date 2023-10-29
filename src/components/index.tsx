@@ -24,3 +24,5 @@ export { default as AskInput } from './List/Chat/Input';
 export { default as ChatMsg } from './List/Chat/Wrapper';
 export { default as Message } from './List/Chat/Message';
 export { default as Messages } from './List/Chat/Wrapper/Messages';
+export { default as ClientMessage } from './List/Chat/Message/Client';
+export { default as AIMessage } from './List/Chat/Message/AI';
