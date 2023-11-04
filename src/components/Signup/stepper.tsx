@@ -1,5 +1,5 @@
 const Stepper = () => {
-  return <div className="text-white">Stepper</div>;
+  return <div>Stepper</div>;
 };
 
 export default Stepper;

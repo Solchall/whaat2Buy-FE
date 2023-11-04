@@ -26,5 +26,7 @@ export { default as Messages } from './List/Chat/Wrapper/Messages';
 export { default as ClientMessage } from './List/Chat/Message/Client';
 export { default as AIMessage } from './List/Chat/Message/AI';
 
+export { default as SignupForm } from './Signup';
 export { default as Stepper } from './Signup/stepper';
 export { default as PageBtn } from './Signup/pageBtn';
+export { default as Form } from './Signup/forms';

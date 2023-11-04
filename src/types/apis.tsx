@@ -1,4 +1,4 @@
-import { LoginFormState, SignUpFormState } from './auth';
+import { LoginFormState, ISignupForm } from './auth';
 import { IItem } from './items';
 
 interface IResLogin {
@@ -11,7 +11,7 @@ interface IResSignup {
 }
 
 type IReqLogin = LoginFormState;
-type IReqSignup = SignUpFormState;
+type IReqSignup = ISignupForm;
 type IResAccessToken = IResLogin;
 type IResRefreshToken = IResLogin;
 type ILogoutAll = IResSignup;
