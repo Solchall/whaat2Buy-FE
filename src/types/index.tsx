@@ -32,7 +32,7 @@ export type { IItem, ISelectedItem } from './items';
 
 export type { IListType } from './list';
 
-export type { ILoginForm, LoginFormState, IAuthButton, SignUpFormState } from './auth';
+export type { ILoginForm, LoginFormState, IAuthButton, ISignupForm } from './auth';
 
 export type { IUser } from './user';
 

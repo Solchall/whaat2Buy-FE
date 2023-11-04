@@ -27,3 +27,15 @@ export { useAskInput, useAskInputActions } from './askInput';
 export { useSelectedItem, useSelectedItemActions } from './selectedItem';
 
 export { useMessages, useMessagesActions } from './messages';
+
+export {
+  useCurrentStep,
+  useSignupEmail,
+  useSignupUsername,
+  useSignupPassword,
+  useSignupOpenAI,
+  useSignupHeight,
+  useSignupWeight,
+  useSignupInterest,
+  useSignupFormActions,
+} from './signup';

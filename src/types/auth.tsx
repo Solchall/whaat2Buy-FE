@@ -15,11 +15,29 @@ interface LoginActions {
 }
 
 /** Signup 관련 */
-interface SignUpFormState {
+interface ISignupForm extends SignupFormState {
+  actions: SignupActions;
+}
+interface SignupFormState {
   username: string;
   email: string;
   openAI: string;
   password: string;
+  weight: number | undefined;
+  height: number | undefined;
+  interest: string[] | undefined;
+  currentStep: number;
+}
+interface SignupActions {
+  setCurrentStep: (input: SignupFormState['currentStep']) => void;
+  setEmail: (input: SignupFormState['email']) => void;
+  setPassword: (input: SignupFormState['password']) => void;
+  setUsername: (input: SignupFormState['username']) => void;
+  setOpenAI: (input: SignupFormState['openAI']) => void;
+  setHeight: (input: SignupFormState['height']) => void;
+  setWeight: (input: SignupFormState['weight']) => void;
+  resetForm: () => void;
+  setForm: (label: string, value: Partial<SignupFormState>) => void;
 }
 
 /** Login과 signup에 사용되는 버튼 UI  */
@@ -31,4 +49,4 @@ interface IAuthButton {
   disabled?: boolean;
 }
 
-export type { ILoginForm, LoginFormState, SignUpFormState, IAuthButton };
+export type { ILoginForm, LoginFormState, ISignupForm, IAuthButton };
