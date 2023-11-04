@@ -12,6 +12,8 @@ const SignupFormStore = create<ISignupForm>()(
     weight: undefined,
     interest: undefined,
     currentStep: 0,
+    startStep: 0,
+    endStep: 2,
 
     actions: {
       setCurrentStep: (input: ISignupForm['currentStep']) =>
@@ -31,7 +33,7 @@ const SignupFormStore = create<ISignupForm>()(
 
       resetForm: () =>
         set(
-          () => ({
+          (state: ISignupForm) => ({
             password: '',
             email: '',
             username: '',
@@ -39,7 +41,7 @@ const SignupFormStore = create<ISignupForm>()(
             height: undefined,
             weight: undefined,
             interest: undefined,
-            currentStep: 0,
+            currentStep: state.startStep,
           }),
           false,
           'resetForm',
@@ -48,6 +50,8 @@ const SignupFormStore = create<ISignupForm>()(
   })),
 );
 
+const useEndStep = () => SignupFormStore((state) => state.endStep);
+const useStartStep = () => SignupFormStore((state) => state.startStep);
 const useCurrentStep = () => SignupFormStore((state) => state.currentStep);
 const useSignupEmail = () => SignupFormStore((state) => state.email);
 const useSignupUsername = () => SignupFormStore((state) => state.username);
@@ -71,6 +75,8 @@ const useFormValue = () =>
 const useSignupFormActions = () => SignupFormStore((state) => state.actions);
 
 export {
+  useEndStep,
+  useStartStep,
   useCurrentStep,
   useSignupEmail,
   useSignupUsername,

@@ -1,8 +1,11 @@
 import { useCurrentStep, useSignupFormActions, useFormValue } from 'store';
 import S from './styles';
+import { useEndStep, useStartStep } from 'store/signup';
 
 const PageBtn = () => {
   const currentStep = useCurrentStep();
+  const startStep = useStartStep();
+  const endStep = useEndStep();
   const { setCurrentStep } = useSignupFormActions();
   const formValue = useFormValue();
   return (
@@ -11,7 +14,7 @@ const PageBtn = () => {
         <div className={S.BtnWrapper}>
           <button
             className={S.BtnFill('white')}
-            disabled={currentStep == 0}
+            disabled={currentStep == startStep}
             onClick={() => setCurrentStep(currentStep - 1)}
           >
             이전으로{' '}
@@ -22,12 +25,12 @@ const PageBtn = () => {
         <div className={S.BtnWrapper}>
           <button
             className={S.BtnFill('none')}
-            disabled={currentStep < 0 || currentStep > 3}
+            disabled={currentStep < startStep || currentStep > endStep}
             onClick={() =>
               currentStep > 2 ? console.log(formValue) : setCurrentStep(currentStep + 1)
             }
           >
-            {currentStep > 2 ? '제출하기' : '다음으로'}
+            {currentStep == endStep ? '제출하기' : '다음으로'}
           </button>
         </div>
       }

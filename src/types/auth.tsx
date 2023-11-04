@@ -27,6 +27,8 @@ interface SignupFormState {
   height: number | undefined;
   interest: string[] | undefined;
   currentStep: number;
+  startStep: 0;
+  endStep: 2;
 }
 interface SignupActions {
   setCurrentStep: (input: SignupFormState['currentStep']) => void;
