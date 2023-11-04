@@ -1,4 +1,5 @@
 import { PageBtn, Stepper, Form } from 'components';
+import S from './styles';
 
 const SignupForm = () => {
   return (
@@ -11,10 +12,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
-const SignupContainer =
-  'w-2/5 h-4/5 rounded-xl bg-white  shadow-lg shadow-zinc-300/50 flex flex-col items-center justify-between';
-
-const S = {
-  SignupContainer,
-};

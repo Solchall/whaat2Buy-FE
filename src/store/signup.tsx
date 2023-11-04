@@ -27,8 +27,7 @@ const SignupFormStore = create<ISignupForm>()(
         set(() => ({ height: input }), false, 'setHeight'),
       setWeight: (input: ISignupForm['weight']) =>
         set(() => ({ weight: input }), false, 'setWeight'),
-      setForm: (label: string, value: Partial<ISignupForm>) =>
-        set(() => ({ [label]: value }), false, 'setForm'),
+      setForm: (label: string, value) => set(() => ({ [label]: value }), false, 'setForm'),
 
       resetForm: () =>
         set(
@@ -57,6 +56,16 @@ const useSignupOpenAI = () => SignupFormStore((state) => state.openAI);
 const useSignupHeight = () => SignupFormStore((state) => state.height);
 const useSignupWeight = () => SignupFormStore((state) => state.weight);
 const useSignupInterest = () => SignupFormStore((state) => state.interest);
+const useFormValue = () =>
+  SignupFormStore(({ username, email, password, openAI, height, weight, interest }) => ({
+    username,
+    email,
+    password,
+    openAI,
+    height,
+    weight,
+    interest,
+  }));
 
 // 🎉 one selector for all our actions
 const useSignupFormActions = () => SignupFormStore((state) => state.actions);
@@ -71,4 +80,5 @@ export {
   useSignupWeight,
   useSignupInterest,
   useSignupFormActions,
+  useFormValue,
 };

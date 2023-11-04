@@ -38,4 +38,5 @@ export {
   useSignupWeight,
   useSignupInterest,
   useSignupFormActions,
+  useFormValue,
 } from './signup';
