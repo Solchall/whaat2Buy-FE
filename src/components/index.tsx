@@ -30,3 +30,6 @@ export { default as SignupForm } from './Signup';
 export { default as Stepper } from './Signup/stepper';
 export { default as PageBtn } from './Signup/pageBtn';
 export { default as Form } from './Signup/forms';
+export { default as Step1 } from './Signup/forms/step1';
+export { default as Step2 } from './Signup/forms/step2';
+export { default as Step3 } from './Signup/forms/step3';
