@@ -1,4 +1,4 @@
-import { PageBtn, Stepper, Form } from 'components';
+import { Stepper, Form } from 'components';
 import S from './styles';
 
 const SignupForm = () => {
@@ -6,7 +6,6 @@ const SignupForm = () => {
     <div className={S.SignupContainer}>
       <Stepper />
       <Form />
-      <PageBtn />
     </div>
   );
 };

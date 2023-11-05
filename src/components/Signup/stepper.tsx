@@ -21,7 +21,7 @@ const Stepper = () => {
         {stepInfo.map(({ number, title, idx }) => (
           <>
             <div className={S.StepInfoContainer}>
-              <div className={S.Number(currentStep, idx)}>{number}</div>
+              <div className={S.StepNumber(currentStep, idx)}>{number}</div>
               <div className={S.Title(currentStep, idx)}>{title}</div>
             </div>
             <div className={S.ProgressBarWrapper}>

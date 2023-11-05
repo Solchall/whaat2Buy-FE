@@ -54,7 +54,7 @@ const Title = (currentStep: number, idx: number) => {
   return `font-semibold ${color}`;
 };
 
-const Number = (currentStep: number, idx: number) => {
+const StepNumber = (currentStep: number, idx: number) => {
   const color = setBgColor(currentStep, idx);
 
   const style = `h-[30px] w-[30px] rounded-full ${color} text-center text-white  p-0.5 mb-3`;
@@ -79,7 +79,7 @@ const S = {
   BtnFill,
   StepContainer,
   StepInfoContainer,
-  Number,
+  StepNumber,
   Title,
   ProgressBarWrapper,
   ProgreeBarBg,
