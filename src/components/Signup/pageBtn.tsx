@@ -25,12 +25,11 @@ const PageBtn = () => {
         <div className={S.BtnWrapper}>
           <button
             className={S.BtnFill('none')}
-            disabled={currentStep < startStep || currentStep > endStep}
             onClick={() =>
-              currentStep > 2 ? console.log(formValue) : setCurrentStep(currentStep + 1)
+              currentStep === endStep ? console.log(formValue) : setCurrentStep(currentStep + 1)
             }
           >
-            {currentStep == endStep ? '제출하기' : '다음으로'}
+            {currentStep === endStep ? '제출하기' : '다음으로'}
           </button>
         </div>
       }
