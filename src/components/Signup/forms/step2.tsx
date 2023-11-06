@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
-import { useSignupHeight, useSignupWeight } from 'store';
+import { useSignupHeight, useSignupUsername, useSignupWeight } from 'store';
 import { ISignupForm } from 'types';
 import * as S from '../../Login/style';
 import PageBtn from '../pageBtn';
@@ -9,6 +9,7 @@ import SignupValidation from './validation';
 const Step2 = () => {
   const weight = useSignupWeight();
   const height = useSignupHeight();
+  const username = useSignupUsername();
   const CurrentData = () => {
     const data = {
       username: getValues('username'),
@@ -25,6 +26,7 @@ const Step2 = () => {
   } = useForm<ISignupForm>({
     mode: 'onChange',
     defaultValues: {
+      username: username,
       weight: weight,
       height: height,
     },
@@ -40,7 +42,7 @@ const Step2 = () => {
         {...register('username', SignupValidation.username)}
       />
 
-      {errors?.height && <div className={S.ErrorWrapper}> {errors.height.message} </div>}
+      {errors?.username && <div className={S.ErrorWrapper}> {errors.username.message} </div>}
 
       {/*몸무게 입력*/}
       <input

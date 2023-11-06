@@ -29,9 +29,11 @@ const SignupValidation = {
   },
   height: {
     required: '키를 입력해주세요',
+    valueAsNumber: true,
   },
   weight: {
     required: '몸무게를 입력해주세요',
+    valueAsNumber: true,
   },
 };
 

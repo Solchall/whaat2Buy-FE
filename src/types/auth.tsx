@@ -25,7 +25,7 @@ interface SignupFormState {
   password: string;
   weight: number | undefined;
   height: number | undefined;
-  interest: string[] | undefined;
+  interest: string[];
   currentStep: number;
   startStep: 0;
   endStep: 2;
@@ -39,7 +39,7 @@ interface SignupActions {
   setHeight: (input: SignupFormState['height']) => void;
   setWeight: (input: SignupFormState['weight']) => void;
   resetForm: () => void;
-  setForm: (label: string, value: Partial<SignupFormState>) => void;
+  setForm: (label: string, value: string | number | string[]) => void;
 }
 
 /** Login과 signup에 사용되는 버튼 UI  */
