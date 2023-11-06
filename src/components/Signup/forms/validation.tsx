@@ -1,6 +1,10 @@
 const SignupValidation = {
   email: {
     required: '이메일 주소를 입력해주세요',
+    pattern: {
+      value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
+      message: '이메일 형식이 아닙니다.',
+    },
   },
   password: {
     required: '비밀번호를 입력해주세요',
@@ -17,8 +21,11 @@ const SignupValidation = {
       message: '영문 / 특수기호 / 숫자를 포함하여야 합니다.',
     },
   },
+  username: {
+    required: '이름을 입력해주세요',
+  },
   openAI: {
-    required: '이메일 주소를 입력해주세요',
+    required: 'openAPI key를 입력해주세요',
   },
   height: {
     required: '키를 입력해주세요',

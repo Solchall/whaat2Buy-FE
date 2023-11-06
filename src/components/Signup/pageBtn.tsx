@@ -3,11 +3,11 @@ import S from './styles';
 import { useEndStep, useStartStep } from 'store/signup';
 
 interface IPageBtn {
-  data: any;
+  createData: any;
   errors: any;
 }
 
-const PageBtn = ({ data, errors }: IPageBtn) => {
+const PageBtn = ({ createData, errors }: IPageBtn) => {
   const currentStep = useCurrentStep();
   const startStep = useStartStep();
   const endStep = useEndStep();
@@ -16,6 +16,7 @@ const PageBtn = ({ data, errors }: IPageBtn) => {
   const formValue = useFormValue();
   const handleNextBtn = () => {
     setCurrentStep(currentStep + 1);
+    const data = createData();
     Object.keys(data).forEach(function (key) {
       const value = data[key];
       setForm(key, value);
