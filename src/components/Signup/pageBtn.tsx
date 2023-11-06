@@ -1,6 +1,7 @@
 import { useCurrentStep, useSignupFormActions, useFormValue } from 'store';
 import S from './styles';
 import { useEndStep, useStartStep } from 'store/signup';
+import { signup } from 'apis';
 
 interface IPageBtn {
   createData?: any;
@@ -23,8 +24,9 @@ const PageBtn = ({ createData, errors }: IPageBtn) => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(formValue);
+    await signup(formValue);
   };
 
   return (

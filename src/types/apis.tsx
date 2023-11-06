@@ -11,7 +11,10 @@ interface IResSignup {
 }
 
 type IReqLogin = LoginFormState;
-type IReqSignup = ISignupForm;
+type IReqSignup = Pick<
+  ISignupForm,
+  'email' | 'password' | 'height' | 'weight' | 'openAI' | 'interest' | 'username'
+>;
 type IResAccessToken = IResLogin;
 type IResRefreshToken = IResLogin;
 type ILogoutAll = IResSignup;
