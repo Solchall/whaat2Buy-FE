@@ -1,7 +1,14 @@
-import { useCurrentStep, useSignupFormActions, useFormValue } from 'store';
-import S from './styles';
-import { useEndStep, useStartStep } from 'store/signup';
+import { toast } from 'react-toastify';
+import {
+  useCurrentStep,
+  useSignupFormActions,
+  useFormValue,
+  useEndStep,
+  useStartStep,
+} from 'store';
 import { signup } from 'apis';
+import S from './styles';
+import { useNavigate } from 'react-router-dom';
 
 interface IPageBtn {
   createData?: any;
@@ -9,6 +16,7 @@ interface IPageBtn {
 }
 
 const PageBtn = ({ createData, errors }: IPageBtn) => {
+  const navigation = useNavigate();
   const currentStep = useCurrentStep();
   const startStep = useStartStep();
   const endStep = useEndStep();
@@ -26,7 +34,19 @@ const PageBtn = ({ createData, errors }: IPageBtn) => {
 
   const handleSubmit = async () => {
     console.log(formValue);
-    await signup(formValue);
+    try {
+      await signup(formValue);
+      navigation('/login');
+      toast.success('회원가입이 완료되었습니다', {
+        theme: 'dark',
+        autoClose: 4000,
+      });
+    } catch (error) {
+      toast.error('회원가입이 실패하였습니다', {
+        theme: 'dark',
+        autoClose: 4000,
+      });
+    }
   };
 
   return (

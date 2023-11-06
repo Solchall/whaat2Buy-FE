@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { PageBtn } from 'components';
 import { ChangeEvent, useState } from 'react';
 import { useSignupFormActions, useSignupInterest } from 'store';
@@ -12,7 +13,10 @@ const Step3 = () => {
     if (e.keyCode === 32 && data !== '') {
       // 같은 태그가 있다면 에러 띄움
       if (interest?.includes(data)) {
-        console.log('이미 같은 태그 존재함');
+        toast.error('이미 동일한 태그가 존재합니다', {
+          theme: 'dark',
+          autoClose: 1000,
+        });
       } else {
         const interestArray = interest.length > 0 ? [...interest, data] : [data];
         if (interest) {
