@@ -1,12 +1,12 @@
 //import { useQuery } from 'react-query';
 // import { useNavigate } from 'react-router-dom';
-import { QueryStore, useUserOpenAI } from 'store';
+import { useQuery, useUserOpenAI } from 'store';
 //import { getFilteringList, getMagazineList } from 'apis/list.apis';
 // import { IItem } from 'types';
-import { ListHeader, ListItems, SwitchBtn } from 'components';
+import { ListHeader, ListItems, ChatItems } from 'components';
 
 const List = () => {
-  const query = QueryStore((state) => state.query);
+  const query = useQuery();
   // const navigation = useNavigate();
   const openAI = useUserOpenAI();
   console.log(openAI, query);
@@ -62,13 +62,9 @@ const FilterQuery = {
       <ListHeader />
       <div className={S.ListContainer}>
         <ListItems />
+
+        <ChatItems />
       </div>
-      <SwitchBtn />
-      {/*<button className="text-white" onClick={handlebtn}>
-        페이지 이동
-      </button>
-      <SwitchBtn />
-      <ListItems />*/}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useListType } from 'store';
-import { QueryStore, useUserOpenAI } from 'store';
+import { useQuery as useQueryState, useUserOpenAI } from 'store';
 import S from './styles';
 import { useQuery } from 'react-query';
 import { getFilteringList, getMagazineList } from 'apis';
@@ -7,7 +7,7 @@ import ListItemsWrapper from './Wrapper';
 
 const ListItems = () => {
   const listType = useListType();
-  const query = QueryStore((state) => state.query);
+  const query = useQueryState();
   // const navigation = useNavigate();
   const openAI = useUserOpenAI();
   const reqBody = {
@@ -41,12 +41,6 @@ const ListItems = () => {
   const LoadingState = filterLoading || filterFetching || magazineFetching || magazineLoading;
 
   return (
-    /*<div>
-      <span className="text-white"> {listType}</span>
-
-      {listType === 'filter' && <div className="text-white">filter List</div>}
-      {listType === 'magazine' && <div className="text-white">magazine List</div>}
-    </div>*/
     <div className={S.ListItemsContainer}>
       <ListItemsWrapper loadingState={LoadingState} items={Items} />
     </div>

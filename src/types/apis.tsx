@@ -1,4 +1,4 @@
-import { LoginFormState, SignUpFormState } from './auth';
+import { LoginFormState, ISignupForm } from './auth';
 import { IItem } from './items';
 
 interface IResLogin {
@@ -11,7 +11,10 @@ interface IResSignup {
 }
 
 type IReqLogin = LoginFormState;
-type IReqSignup = SignUpFormState;
+type IReqSignup = Pick<
+  ISignupForm,
+  'email' | 'password' | 'height' | 'weight' | 'openAI' | 'interest' | 'username'
+>;
 type IResAccessToken = IResLogin;
 type IResRefreshToken = IResLogin;
 type ILogoutAll = IResSignup;
@@ -40,12 +43,50 @@ interface IResGetMagazineList {
     };
   };
 }
+
+interface IReqLikes {
+  clothId: string;
+}
+
+type IResLikes = IResSignup;
+
+interface IReqItem {
+  apikey: string;
+  productUrl: string;
+}
+interface IResDetail {
+  simple_detail: string;
+  message: string;
+}
+interface IResSize {
+  size_reco: string;
+  message: string;
+}
+
+interface IResReview {
+  review_summ: string;
+  message: string;
+}
+interface IReqAddAskedItem {
+  owner: string; // userId
+  type: string; // initial Demand
+  clothId: string; // clothId
+  message: string; //asked Message
+}
+
+interface IResAddAskedItem {
+  data: {
+    success: boolean;
+    message: string;
+  };
+}
 interface IInfo {
   username: string;
   email: string;
   openAI: string;
   password: string;
 }
+
 export type {
   IReqGetList,
   IResGetFilterList,
@@ -58,4 +99,12 @@ export type {
   IResRefreshToken,
   ILogoutAll,
   IInfo,
+  IReqLikes,
+  IResLikes,
+  IReqAddAskedItem,
+  IResAddAskedItem,
+  IReqItem,
+  IResDetail,
+  IResSize,
+  IResReview,
 };

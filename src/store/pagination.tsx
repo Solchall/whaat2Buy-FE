@@ -1,25 +1,6 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-
-interface IPagination extends PaginationState {
-  actions: PaginationActions;
-}
-
-interface PaginationState {
-  currentPage: number;
-  itemsPerPage: number;
-  pagesArray: number[];
-  lastItemIndex: number;
-  firstItemIndex: number;
-}
-
-interface PaginationActions {
-  setCurrentPage: (input: number) => void;
-  resetCurrentPage: () => void;
-  setPagesArray: (input: number) => void;
-  setLastItemIndex: () => void;
-  setFirstItemIndex: () => void;
-}
+import { IPagination } from 'types';
 
 const PaginationStore = create<IPagination>()(
   devtools((set) => ({

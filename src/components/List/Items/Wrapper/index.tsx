@@ -1,14 +1,18 @@
-import { Loading, Pagination } from 'components';
+import { Pagination } from 'components';
 import {
   useCurrentPage,
   useLastItemIndex,
   useFirstItemIndex,
   usePagesArray,
   usePaginationActions,
+  useCurrentItems,
+  useCurrentItemsActions,
 } from 'store';
-import S from './styles';
+
 import { IItem } from 'types';
 import { useEffect } from 'react';
+
+import { LoadingContainer, CardContainer } from 'components';
 
 interface IListItemsWrapper {
   loadingState: boolean;
@@ -19,8 +23,10 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
   const currentPage = useCurrentPage();
   const pagesArray = usePagesArray();
   const lastItemIndex = useLastItemIndex();
-  const firstItemIdex = useFirstItemIndex();
+  const firstItemIndex = useFirstItemIndex();
   const { setPagesArray, setLastItemIndex, setFirstItemIndex } = usePaginationActions();
+  const currentItems = useCurrentItems();
+  const { setCurrentItems } = useCurrentItemsActions();
 
   useEffect(() => {
     setPagesArray(items?.length ? items.length : 0);
@@ -29,25 +35,19 @@ const ListItemsWrapper = ({ loadingState, items }: IListItemsWrapper) => {
   useEffect(() => {
     setLastItemIndex();
     setFirstItemIndex();
-  }, [currentPage]);
+    if (items) {
+      // 아이템이 바뀐 경우
+      setCurrentItems(firstItemIndex, lastItemIndex, items);
+    }
+  }, [currentPage, items]);
 
-  console.log(
-    currentPage,
-    pagesArray,
-    lastItemIndex,
-    firstItemIdex,
-    items?.slice(firstItemIdex, lastItemIndex),
-  );
+  console.log(currentPage, pagesArray, lastItemIndex, firstItemIndex, currentItems);
   return (
-    <div className={S.ListItemsWrapper}>
-      {loadingState && <Loading />}
-      {items?.slice(firstItemIdex, lastItemIndex).map((item) => (
-        <div className="text-white" key={item.no}>
-          {item.name}
-        </div>
-      ))}
+    <>
+      {loadingState ? <LoadingContainer /> : <CardContainer />}
+
       {!loadingState && <Pagination />}
-    </div>
+    </>
   );
 };
 

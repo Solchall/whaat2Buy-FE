@@ -1,8 +1,7 @@
-//import { defaultAxios } from './index';
 import { IReqGetList, IItem, IResGetFilterList, IResGetMagazineList } from 'types';
 import { privateAxios } from 'apis';
 
-const PREFIX: string = '/items';
+const PREFIX_URL: string = '/items';
 /**
  * 필터링 - 물건 목록 받아오기
  * @apikey apiKey
@@ -13,7 +12,7 @@ const getFilteringList = async (body: IReqGetList): Promise<IItem[]> => {
   try {
     const {
       data: { filtering },
-    }: IResGetFilterList = await privateAxios.post(`${PREFIX}/filtering`, body);
+    }: IResGetFilterList = await privateAxios.post(`${PREFIX_URL}/filtering`, body);
 
     return filtering.clothes;
   } catch (error) {
@@ -32,7 +31,7 @@ const getMagazineList = async (body: IReqGetList): Promise<IItem[]> => {
   try {
     const {
       data: { magazines },
-    }: IResGetMagazineList = await privateAxios.post(`${PREFIX}/magazines`, body);
+    }: IResGetMagazineList = await privateAxios.post(`${PREFIX_URL}/magazines`, body);
 
     return magazines.clothes;
   } catch (error) {
