@@ -40,6 +40,7 @@ const Step3 = () => {
   return (
     <>
       <div className={S.interestContianer}>
+        <label> 관심 키워드 </label>
         <span className={S.interestOutputs}>
           {interest?.map((item, idx) => (
             <span className={S.interestItem} key={idx} onClick={() => removeInterest(item)}>
