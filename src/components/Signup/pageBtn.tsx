@@ -52,7 +52,7 @@ const PageBtn = ({ createData, errors }: IPageBtn) => {
   return (
     <div className={S.BtnContainer}>
       {
-        <div className={S.BtnWrapper}>
+        <div className={S.BtnWrapper(currentStep === startStep)}>
           <button
             className={S.BtnFill('white')}
             disabled={currentStep == startStep}
@@ -63,7 +63,7 @@ const PageBtn = ({ createData, errors }: IPageBtn) => {
         </div>
       }
       {
-        <div className={S.BtnWrapper}>
+        <div className={S.BtnWrapper(!errors)}>
           <button
             disabled={!errors}
             className={S.BtnFill('none')}
