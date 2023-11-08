@@ -3,11 +3,11 @@ interface ISelectedItem extends SelectedItemState {
 }
 
 interface SelectedItemState {
-  selectedItem: string;
+  selectedItem: IItem | undefined;
 }
 
 interface SelectedItemActions {
-  setSelectedItem: (input: string) => void;
+  setSelectedItem: (input: IItem) => void;
   resetSelectedItem: () => void;
 }
 interface IItem {

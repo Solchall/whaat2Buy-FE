@@ -55,4 +55,26 @@ const review = async (body: IReqItem): Promise<IResReview> => {
   }
 };
 
-export { details, size, review };
+/**
+ * ask
+ * 해당 상품 리뷰 요청
+ * @route POST /items/revies
+ * @access private
+ */
+const ask = async (body: {
+  apikey: string;
+  userQuestion: string;
+  productNo: string;
+}): Promise<string> => {
+  console.log(body);
+  try {
+    const data: string = await privateAxios.post(`${PREFIX_URL}/ask`, body);
+    console.log('size api: ', data);
+    return data;
+  } catch (error) {
+    console.log('Error', error);
+    throw new Error('Error');
+  }
+};
+
+export { details, size, review, ask };

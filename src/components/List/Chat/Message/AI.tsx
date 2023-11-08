@@ -1,14 +1,22 @@
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { review, size } from 'apis';
 import { CreateClientMessage } from 'constant';
-import { useListType, useListTypeActions, useMessagesActions, useUserOpenAI } from 'store';
+import {
+  useListType,
+  useListTypeActions,
+  useMessagesActions,
+  useSelectedItemActions,
+  useUserOpenAI,
+} from 'store';
 import { IMessage } from 'types';
 
-const AIMessage = ({ message: { content, type, from, item, imgUrl } }: { message: IMessage }) => {
-  console.log(content);
+const AIMessage = ({ message: { content, type, from, item, img } }: { message: IMessage }) => {
+  console.log(content, type, img);
   const openAI = useUserOpenAI();
   const { setFilterType, setMagazineType } = useListTypeActions();
   const { addMessage } = useMessagesActions();
+  const { setSelectedItem } = useSelectedItemActions();
+
   const listType = useListType();
 
   const handleCategorySwitch = () => {
@@ -35,6 +43,10 @@ const AIMessage = ({ message: { content, type, from, item, imgUrl } }: { message
       apikey: openAI,
       productNo: item?.no as string,
     };
+    if (item) {
+      setSelectedItem(item);
+    }
+
     if (type === 'size' && item) {
       addMessage(AskMessage(item, type));
       const { size_reco } = await size(body);
@@ -51,9 +63,9 @@ const AIMessage = ({ message: { content, type, from, item, imgUrl } }: { message
     <>
       <div className="place-self-start whitespace-pre-line rounded-2xl bg-zinc-800 text-white max-w-[75%] p-4 my-4">
         {content} {type} {from}
-        {imgUrl && (
+        {img && (
           <div>
-            <img src={imgUrl} alt={item?.no} />
+            <img src={img} alt={item?.no} />
           </div>
         )}
       </div>

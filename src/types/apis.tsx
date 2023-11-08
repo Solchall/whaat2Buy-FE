@@ -57,7 +57,7 @@ interface IReqItem {
 interface IResDetail {
   simple_detail: string;
   message: string;
-  imgUrl: string;
+  img: string;
 }
 interface IResSize {
   size_reco: string;

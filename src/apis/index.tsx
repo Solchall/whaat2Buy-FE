@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { login, signup, accessToken, refreshToken, logoutAll } from './auth.apis';
 import { getFilteringList, getMagazineList } from './list.apis';
-import { details, size, review } from './items.apis';
+import { details, size, review, ask } from './items.apis';
 import { info, likes, addAskedCloth } from './users.apis';
 import { IResAccessToken } from 'types';
 import { useUserActions } from 'store';
@@ -111,4 +111,5 @@ export {
   details,
   size,
   review,
+  ask,
 };
