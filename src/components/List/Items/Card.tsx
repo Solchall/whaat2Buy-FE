@@ -36,15 +36,16 @@ const handleAskBtn = async (
     addMessage(AskMessage);
     const data = {
       apikey: openAI,
-      productUrl: `https://www.musinsa.com/app/goods/${item.no}`,
+      productNo: item.no,
     };
-    const { message, simple_detail } = await details(data);
+    const { message, simple_detail, imgUrl } = await details(data);
     if (message === 'ok') {
       console.log('details', simple_detail);
       const detailsMessage = {
         from: 'AI',
         type: 'answer',
         content: simple_detail,
+        imgUrl: imgUrl,
         item: item,
       };
       addMessage(detailsMessage);

@@ -20,7 +20,7 @@ const MessagesStore = create<IMessages>()(
           (state) => ({
             messageArray: [
               ...state.messageArray,
-              { type: 'intial', from: 'AI', content: createInitialMsg(query) },
+              { type: 'initial', from: 'AI', content: createInitialMsg(query) },
             ],
           }),
           false,
