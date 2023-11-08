@@ -1,5 +1,6 @@
 import { ThunderboltOutlined } from '@ant-design/icons';
 import { review, size } from 'apis';
+import { CreateClientMessage } from 'constant';
 import { useListType, useListTypeActions, useMessagesActions, useUserOpenAI } from 'store';
 import { IMessage } from 'types';
 
@@ -12,12 +13,21 @@ const AIMessage = ({ message: { content, type, from, item, imgUrl } }: { message
 
   const handleCategorySwitch = () => {
     console.log(listType);
-
     if (listType === 'filter') {
       setMagazineType();
     } else {
       setFilterType();
     }
+  };
+
+  const AskMessage = (item: IMessage['item'], type: string) => {
+    const message = {
+      from: 'Client',
+      type: 'initial',
+      content: CreateClientMessage(item?.name as string, type),
+      item: item,
+    };
+    return message;
   };
   console.log(from, item);
   const handleRecQuestion = async (type: string) => {
@@ -26,9 +36,11 @@ const AIMessage = ({ message: { content, type, from, item, imgUrl } }: { message
       productNo: item?.no as string,
     };
     if (type === 'size' && item) {
+      addMessage(AskMessage(item, type));
       const { size_reco } = await size(body);
       addMessage({ from: 'AI', type: 'answer', item: item, content: size_reco });
     } else if (type === 'review' && item) {
+      addMessage(AskMessage(item, type));
       const { review_summ } = await review(body);
       addMessage({ from: 'AI', type: 'answer', item: item, content: review_summ });
     } else {
