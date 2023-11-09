@@ -45,6 +45,7 @@ const AskInput = () => {
       item: selectedItem,
     };
     addMessage(askMessage);
+    resetAskInput();
 
     const data = {
       apikey: openAI,
@@ -55,14 +56,13 @@ const AskInput = () => {
     const response = await ask(data);
 
     console.log('details', response);
-    /*const detailsMessage = {
+    const detailsMessage = {
       from: 'AI',
       type: 'answer',
       content: response,
       item: selectedItem,
     };
-    addMessage(detailsMessage);*/
-    resetAskInput();
+    addMessage(detailsMessage);
   };
 
   return (

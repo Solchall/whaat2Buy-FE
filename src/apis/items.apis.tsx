@@ -68,9 +68,9 @@ const ask = async (body: {
 }): Promise<string> => {
   console.log(body);
   try {
-    const data: string = await privateAxios.post(`${PREFIX_URL}/ask`, body);
-    console.log('size api: ', data);
-    return data;
+    const { data } = await privateAxios.post(`${PREFIX_URL}/ask`, body);
+    console.log('ask api: ', data);
+    return data.response;
   } catch (error) {
     console.log('Error', error);
     throw new Error('Error');
