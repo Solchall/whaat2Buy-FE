@@ -62,7 +62,7 @@ const AIMessage = ({ message: { content, type, from, item, img } }: { message: I
   return (
     <>
       <div className="place-self-start whitespace-pre-line rounded-2xl bg-zinc-800 text-white max-w-[75%] p-4 my-4">
-        {content} {type} {from}
+        {content} {/*{type} {from}*/}
         {img && (
           <div>
             <img src={img} alt={item?.no} />
