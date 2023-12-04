@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import { ISelectedItem } from 'types';
+import { IItem, ISelectedItem } from 'types';
 
 export const SelectedItemStore = create<ISelectedItem>()(
   devtools((set) => ({
-    selectedItem: '',
+    selectedItem: undefined,
     actions: {
-      setSelectedItem: (input: string) =>
+      setSelectedItem: (input: IItem) =>
         set(() => ({ selectedItem: input }), false, 'setSelectedItem'),
-      resetSelectedItem: () => set(() => ({ selectedItem: '' }), false, 'resetSelectedItem'),
+      resetSelectedItem: () => set(() => ({ selectedItem: undefined }), false, 'resetSelectedItem'),
     },
   })),
 );

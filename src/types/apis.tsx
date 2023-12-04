@@ -52,11 +52,12 @@ type IResLikes = IResSignup;
 
 interface IReqItem {
   apikey: string;
-  productUrl: string;
+  productNo: string;
 }
 interface IResDetail {
   simple_detail: string;
   message: string;
+  img: string;
 }
 interface IResSize {
   size_reco: string;

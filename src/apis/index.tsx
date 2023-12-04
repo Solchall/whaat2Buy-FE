@@ -1,22 +1,22 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { login, signup, accessToken, refreshToken, logoutAll } from './auth.apis';
 import { getFilteringList, getMagazineList } from './list.apis';
-import { details, size, review } from './items.apis';
+import { details, size, review, ask } from './items.apis';
 import { info, likes, addAskedCloth } from './users.apis';
 import { IResAccessToken } from 'types';
 import { useUserActions } from 'store';
 
 // AccessToken 헤더 불필요한 경우
 const axiosDefaultConfig: AxiosRequestConfig = {
-  //baseURL: `${process.env.REACT_APP_SERVER_API}`,
-  baseURL: 'http://localhost:8000/api',
+  baseURL: `${process.env.REACT_APP_SERVER_API}`,
+  //baseURL: 'http://localhost:8000/api',
 };
 const defaultAxios = axios.create(axiosDefaultConfig);
 
 // AccessToken 헤더와 쿠키 전송이 필요한 경우
 const axiosPrivateConfig: AxiosRequestConfig = {
-  //baseURL: `${process.env.REACT_APP_SERVER_API}`,
-  baseURL: 'http://localhost:8000/api',
+  baseURL: `${process.env.REACT_APP_SERVER_API}`,
+  //baseURL: 'http://localhost:8000/api',
   withCredentials: true,
 };
 const privateAxios = axios.create(axiosPrivateConfig);
@@ -111,4 +111,5 @@ export {
   details,
   size,
   review,
+  ask,
 };

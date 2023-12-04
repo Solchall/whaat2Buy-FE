@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 import { useSignupEmail, useSignupOpenAI, useSignupPassword } from 'store';
+import { PageBtn } from 'components';
 import { ISignupForm } from 'types';
 import SignupValidation from './validation';
-import { DevTool } from '@hookform/devtools';
-import * as S from '../../Login/style';
-import PageBtn from '../pageBtn';
+import S from './styles';
 
 const Step1 = () => {
   const email = useSignupEmail();
@@ -37,35 +37,44 @@ const Step1 = () => {
 
   return (
     <>
-      {/* OPEN AI  입력 */}
+      <div className={S.StepFormContainer}>
+        <div className={S.InputContainer}>
+          {/* OPEN AI  입력 */}
+          <label className={S.InputTitle}> Open API Key</label>
+          <input
+            type="string"
+            className={S.InputWrapper}
+            placeholder="OPENAI API 입력"
+            {...register('openAI', SignupValidation.openAI)}
+          />
 
-      <input
-        type="string"
-        placeholder="OPENAI API 입력"
-        {...register('openAI', SignupValidation.openAI)}
-      />
+          {errors?.openAI && <div className={S.ErrorWrapper}> {errors.openAI.message} </div>}
+        </div>
+        <div className={S.InputContainer}>
+          {/* 이메일 입력*/}
+          <label className={S.InputTitle}> 이메일 주소 </label>
+          <input
+            className={S.InputWrapper}
+            type="email"
+            placeholder="이메일 입력"
+            {...register('email', SignupValidation.email)}
+          />
 
-      {errors?.openAI && <div className={S.ErrorWrapper}> {errors.openAI.message} </div>}
-      {/* 이메일 입력*/}
+          {errors?.email && <div className={S.ErrorWrapper}> {errors.email.message} </div>}
+        </div>
+        <div className={S.InputContainer}>
+          {/* 비밀번호 입력*/}
+          <label className={S.InputTitle}> 비밀번호 </label>
+          <input
+            type="password"
+            className={S.InputWrapper}
+            placeholder="비밀번호 입력"
+            {...register('password', SignupValidation.password)}
+          />
 
-      <input
-        className={S.InputWrapper}
-        type="email"
-        placeholder="이메일 입력"
-        {...register('email', SignupValidation.email)}
-      />
-
-      {errors?.email && <div className={S.ErrorWrapper}> {errors.email.message} </div>}
-
-      {/* 비밀번호 입력*/}
-
-      <input
-        type="password"
-        placeholder="비밀번호 입력"
-        {...register('password', SignupValidation.password)}
-      />
-
-      {errors?.password && <div className={S.ErrorWrapper}> {errors.password.message} </div>}
+          {errors?.password && <div className={S.ErrorWrapper}> {errors.password.message} </div>}
+        </div>
+      </div>
 
       <DevTool control={control} />
       <PageBtn errors={isValid} createData={CurrentData} />

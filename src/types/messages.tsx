@@ -18,6 +18,7 @@ interface IMessage {
   type?: string;
   content: string;
   item?: IItem;
+  img?: string;
 }
 
 export type { IMessages, IMessage };
