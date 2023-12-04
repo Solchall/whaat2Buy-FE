@@ -8,15 +8,15 @@ import { useUserActions } from 'store';
 
 // AccessToken 헤더 불필요한 경우
 const axiosDefaultConfig: AxiosRequestConfig = {
-  //baseURL: `${process.env.REACT_APP_SERVER_API}`,
-  baseURL: 'http://localhost:8000/api',
+  baseURL: `${process.env.REACT_APP_SERVER_API}`,
+  //baseURL: 'http://localhost:8000/api',
 };
 const defaultAxios = axios.create(axiosDefaultConfig);
 
 // AccessToken 헤더와 쿠키 전송이 필요한 경우
 const axiosPrivateConfig: AxiosRequestConfig = {
-  //baseURL: `${process.env.REACT_APP_SERVER_API}`,
-  baseURL: 'http://localhost:8000/api',
+  baseURL: `${process.env.REACT_APP_SERVER_API}`,
+  //baseURL: 'http://localhost:8000/api',
   withCredentials: true,
 };
 const privateAxios = axios.create(axiosPrivateConfig);
