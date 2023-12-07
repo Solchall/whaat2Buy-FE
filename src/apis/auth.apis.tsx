@@ -27,7 +27,7 @@ const login = async (data: IReqLogin): Promise<IResLogin> => {
     const response = await defaultAxios.post(`${PREFIX_URL}/login`, data);
     // console.log("login api response", response);
     const { id, accessToken }: IResLogin = response.data;
-    console.log(id, accessToken);
+    localStorage.setItem('accessToken', accessToken);
     privateAxios.defaults.headers.Authorization = `Bearer ${accessToken}`;
     return { id, accessToken };
   } catch (error) {
