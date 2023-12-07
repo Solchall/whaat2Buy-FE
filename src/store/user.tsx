@@ -6,7 +6,7 @@ const UserStore = create<IUser>()(
   devtools((set) => ({
     email: '',
     userId: '',
-    accessToken: '',
+    accessToken: '' || (localStorage.getItem('accessToken') as string),
     username: '',
     openAI: '',
 

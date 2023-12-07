@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Home, List, TT, Login, Signup, MyPage } from './pages';
-import { DefaultLayout } from 'components';
+import { DefaultLayout, ProtectRoute } from 'components';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,10 +25,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/tt" element={<TT />} />
-            <Route path="/mypage" element={<MyPage />} />
+            <Route element={<ProtectRoute />}>
+              <Route path="/list" element={<List />} />
+              <Route path="/tt" element={<TT />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/" element={<Home />} />
+            </Route>
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Route>
