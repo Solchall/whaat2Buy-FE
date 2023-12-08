@@ -1,9 +1,12 @@
-## ✨ 프로젝트 결과물 
+## ✨ 뭐찾으세요?
 
 ![](https://blog.kakaocdn.net/dn/Aa1XS/btsBBn6WfxB/eUGHuqbYvJMz7sbKiB01PK/img.gif)
 
 ## 프로젝트 소개
 사용자의 자유로운 언어적 요청을 해석해 상품을 찾아주고 상품에 대한 정보제공 질의응답을 제공하는 1:1 쇼핑 도우미 챗봇 서비스
+
+## 📼 시연 영상
+[유투브 주소](https://youtu.be/kU2kh1HcYP4?feature=shared)
 
 
 ## 주요 기능 및 페이지
