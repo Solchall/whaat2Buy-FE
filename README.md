@@ -94,3 +94,27 @@
  </td>
 </tr>
 </table>
+
+
+## 디렉토리 구조
+
+```
+📦src
+ ┣ 📂components
+ ┣ 📂constants
+ ┣ 📂hooks 
+ ┃ ┣ 📂mutations // react-query 의 useMutation 디렉토리
+ ┃ ┣ 📂queries // react-query 의 useQuery 디렉토리
+ ┃ ┣ 📜useClickAway.ts // 기타 다른 hooks
+ ┃ ┣ 📜useForm.ts
+ ┃ ┣ 📜useIntersectionObserver.ts
+ ┃ ┗ 📜useRouterLoading.ts
+ ┣ 📂interfaces // typescript 사용을 위한 interface
+ ┣ 📂lib 
+ ┃ ┗ 📂axios
+ ┣ 📂recoil
+ ┃ ┗ 📜currentUser.ts
+ ┣ 📂types // typescript 사용을 위한 types
+ ┃ ┗ 📜index.ts
+ ┗ 📂utils
+```
