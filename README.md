@@ -1,5 +1,29 @@
 ## ✨ 프로젝트 결과물 
 
+![](https://blog.kakaocdn.net/dn/Aa1XS/btsBBn6WfxB/eUGHuqbYvJMz7sbKiB01PK/img.gif)
+
+## 프로젝트 소개
+
+## 주요 기능 및 페이지
+
+### JWT 기반 로그인
+![](https://blog.kakaocdn.net/dn/czMjUh/btsBFqg2rVF/dmIqZ5fJSqp8OGh7Ozmz50/img.gif)
+
+### 단계별 유효성 검증을 동반한 회원가입 폼
+![](https://blog.kakaocdn.net/dn/bpYof5/btsBGjBEJSE/pqEylg3VnkxFwKnko4UIn0/img.gif)
+
+### 사용자의 자유로운 요청 스타일 입력 페이지
+![](https://blog.kakaocdn.net/dn/b5ePEe/btsBFmyVAmG/rkENFUropRvKaK4lfY3RY0/img.gif)
+
+### API 응답 상태를 고려한 상품 목록 페이지
+![](https://blog.kakaocdn.net/dn/cMGvQ2/btsBCYeeN0U/E5yk0oQGtSORhdkJ7sgLs1/img.gif)
+
+### 선택한 상품에 대한 개괄 정보 제공 및 대표 질문 제시
+![](https://blog.kakaocdn.net/dn/w1XlS/btsBC5qXaFM/KMHOMfla8R6eKbVxqtGzO1/img.gif)
+
+
+### 자유로운 질의응답 기능
+![](https://blog.kakaocdn.net/dn/bXYmz2/btsBClgskOR/kfeC3sxrCz6b6yM50nY3J0/img.gif)
 
 ## ⚒️ 기술 스택
 
