@@ -25,7 +25,10 @@
 ### API 응답 상태를 고려한 상품 목록 페이지
 ![](https://blog.kakaocdn.net/dn/cMGvQ2/btsBCYeeN0U/E5yk0oQGtSORhdkJ7sgLs1/img.gif)
 * react-query를 활용해 openAI를 과도하게 사용하는 경우에 대비 및 방지를 위한 캐싱 도입
+
+
 ### 선택한 상품에 대한 개괄 정보 제공 및 대표 질문 제시
+![](https://blog.kakaocdn.net/dn/w1XlS/btsBC5qXaFM/KMHOMfla8R6eKbVxqtGzO1/img.gif)
 채팅형 UI가 기존 쇼필몰 UI와 혼합된 형태로 재작
 
 ### 자유로운 질의응답 기능
