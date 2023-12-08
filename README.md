@@ -3,6 +3,8 @@
 ![](https://blog.kakaocdn.net/dn/Aa1XS/btsBBn6WfxB/eUGHuqbYvJMz7sbKiB01PK/img.gif)
 
 ## 프로젝트 소개
+사용자의 자유로운 언어적 요청을 해석해 상품을 찾아주고 상품에 대한 정보제공 질의응답을 제공하는 1:1 쇼핑 도우미 챗봇 서비스
+
 
 ## 주요 기능 및 페이지
 
@@ -11,19 +13,24 @@
 
 ### 단계별 유효성 검증을 동반한 회원가입 폼
 ![](https://blog.kakaocdn.net/dn/bpYof5/btsBGjBEJSE/pqEylg3VnkxFwKnko4UIn0/img.gif)
+* 유효한 값을 입력한 경우에만 다음 단게로 넘어갈 수 있음
+* 전체 프로세스에서 현재 진행 단계 표기
+* 키보드 입력과 마우스 이벤트를 활용한 관심사 해그 태그 추가 및 삭제
 
 ### 사용자의 자유로운 요청 스타일 입력 페이지
 ![](https://blog.kakaocdn.net/dn/b5ePEe/btsBFmyVAmG/rkENFUropRvKaK4lfY3RY0/img.gif)
+* Input 컴포넌트 내 대표적인 요청 사례가 시간마다 바뀌는 애니메이션 도입
+* input 입력에 대한 커스텀 훅 활용
 
 ### API 응답 상태를 고려한 상품 목록 페이지
 ![](https://blog.kakaocdn.net/dn/cMGvQ2/btsBCYeeN0U/E5yk0oQGtSORhdkJ7sgLs1/img.gif)
-
+* react-query를 활용해 openAI를 과도하게 사용하는 경우에 대비 및 방지를 위한 캐싱 도입
 ### 선택한 상품에 대한 개괄 정보 제공 및 대표 질문 제시
-![](https://blog.kakaocdn.net/dn/w1XlS/btsBC5qXaFM/KMHOMfla8R6eKbVxqtGzO1/img.gif)
-
+채팅형 UI가 기존 쇼필몰 UI와 혼합된 형태로 재작
 
 ### 자유로운 질의응답 기능
 ![](https://blog.kakaocdn.net/dn/bXYmz2/btsBClgskOR/kfeC3sxrCz6b6yM50nY3J0/img.gif)
+
 
 ## ⚒️ 기술 스택
 
