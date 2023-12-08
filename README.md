@@ -100,21 +100,22 @@
 
 ```
 📦src
+ ┣ 📂apis
  ┣ 📂components
- ┣ 📂constants
- ┣ 📂hooks 
- ┃ ┣ 📂mutations // react-query 의 useMutation 디렉토리
- ┃ ┣ 📂queries // react-query 의 useQuery 디렉토리
- ┃ ┣ 📜useClickAway.ts // 기타 다른 hooks
- ┃ ┣ 📜useForm.ts
- ┃ ┣ 📜useIntersectionObserver.ts
- ┃ ┗ 📜useRouterLoading.ts
- ┣ 📂interfaces // typescript 사용을 위한 interface
- ┣ 📂lib 
- ┃ ┗ 📂axios
- ┣ 📂recoil
- ┃ ┗ 📜currentUser.ts
- ┣ 📂types // typescript 사용을 위한 types
- ┃ ┗ 📜index.ts
- ┗ 📂utils
+   ┣ 📂Common <!--공용 컴포넌트-->
+   ┣ 📂Input <!-- 사용자 입력 input 컴포넌트-->
+   ┣ 📂Layout <!-- 사용자 입력 input 컴포넌트-->
+   ┣ 📂PropectedRoute <!-- Private Route 판정 컴포넌트-->
+   ┣ 📂Login <!-- Login Form 컴포넌트-->
+   ┣ 📂Signup <!-- Signup Form 컴포넌트-->
+   ┣ 📂Main <!-- Main 애니메이션 타이틀 컴포넌트-->
+   ┣ 📜App.tsx 
+   ┗ 📜index.tsx
+ ┣ 📂constant <!-- 각종 문구 및 상수값 -->
+ ┣ 📂pages <!--Routing에 따른 렌더링할 page-->
+ ┣ 📂store <!--Zustand 상태 관리 : 유저 정보, 선택 아이템 정보, 메세지-->
+ ┣ 📂test <!--Zustand action 작동 확인 테스트-->
+ ┣ 📂types <!--각종 자료형 타입 값-->
+ ┣ 📜App.tsx 
+ ┗ 📜index.tsx 
 ```
