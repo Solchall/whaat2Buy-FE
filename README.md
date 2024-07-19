@@ -35,7 +35,7 @@
 
 ### 선택한 상품에 대한 개괄 정보 제공 및 대표 질문 제시
 ![](https://blog.kakaocdn.net/dn/w1XlS/btsBC5qXaFM/KMHOMfla8R6eKbVxqtGzO1/img.gif)
-* 채팅형 UI가 기존 쇼필몰 UI와 혼합된 형태로 재작
+* 채팅형 UI가 기존 쇼핑몰 UI와 혼합된 형태로 재작
 
 ### 자유로운 질의응답 기능
 ![](https://blog.kakaocdn.net/dn/bXYmz2/btsBClgskOR/kfeC3sxrCz6b6yM50nY3J0/img.gif)
